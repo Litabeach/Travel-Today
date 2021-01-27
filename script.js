@@ -9,5 +9,11 @@ function initMap() {
   });
 }
   
+//take the value of the search input box, get the coordinates for that city, plug those coordinates into the "center"
+// how to get city coordinates?
 
+$("#search").on("click", function (event) {
+  event.preventDefault();
+  var city = $("#enter-city").val().trim();
+});
 

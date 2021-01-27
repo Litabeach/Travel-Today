@@ -10,10 +10,20 @@
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDLoW4NIwbwoBdIEKhVbZQvJm8_DT-Las&callback=initMap&libraries=&v=weekly"
       defer></script>
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="map"></div>
+  <form>
+    <div class="form-group col">
+      <label for="search">Search for a city: </label>
+      <input class="form-control" id="enter-city" placeholder="Enter city">
+    </div>
+    <button type="submit" class="btn btn-primary" id="search">Search</button>
+    <div id="cities-buttons"></div>
+  </form>
+  
   <header></header>
   <aside></aside>
 
