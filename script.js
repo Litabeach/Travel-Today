@@ -1,26 +1,42 @@
 let map;
 
+//setting city to a particular value for testing
+var city = "Minneapolis"
+// geolocate URL
+geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
+console.log(geolocateURL)
+
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 44.9778, lng: -93.2650 },
-    zoom: 10,
+  // AJAX call for geolocate
+$.ajax({
+  url: geolocateURL,
+  method: "GET"
+
+})
+  .then(function (response) {
+    console.log(response)
+    //setting the variables for longitude and latitude to plug in to line 5 for centering
+    var latOne = response.results[0].geometry.location.lat
+    console.log(latOne)
+    var lonOne = response.results[0].geometry.location.lng
+    console.log(lonOne)
+ 
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: latOne, lng: lonOne },
+        zoom: 10,
+    });
   });
 }
-  
-//take the value of the search input box, get the coordinates for that city, plug those coordinates into the "center"
-// how to get city coordinates?
 
+
+// on-click event for search button
 $("#search").on("click", function (event) {
   event.preventDefault();
+  //sets the variable "city" to the value of the input div
   var city = $("#enter-city").val().trim();
-    if (city) {
-      cities.push(city);
-      //run function that populates the page with local attractions and restaurants
+  if (city) {
+    initMap()
+  // here run the function that updates the map 
+  // here run the function that populates the page with local attractions and restaurants
   }
 });
-
-// var city = "Minneapolis"
-
-// geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
-
-// console.log(geolocateURL)
