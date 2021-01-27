@@ -1,4 +1,5 @@
 let map;
+let marker;
 
 function initMap(city) {
   // geolocate URL
@@ -12,16 +13,25 @@ $.ajax({
 
 })
   .then(function (response) {
-    //setting the variables for longitude and latitude to plug in to line 20 to center
+    //setting the variables for longitude and latitude to plug in to line 20 to center:
     var latOne = response.results[0].geometry.location.lat
     var lonOne = response.results[0].geometry.location.lng
- 
+
+    //  gets the map, sets parameters:
       map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: latOne, lng: lonOne },
         zoom: 10,
     });
+      var marker = new google.maps.Marker({
+        position: { lat: latOne, lng: lonOne },
+        title:"You wanna go here for xyz!",
   });
+  marker.setMap(map);
+  
+  });
+  
 }
+
 
 // on-click event for search button
 $("#search").on("click", function (event) {
@@ -30,7 +40,6 @@ $("#search").on("click", function (event) {
   var city = $("#enter-city").val().trim();
   if (city) {
     initMap(city)
-  // here run the function that updates the map 
   // here run the function that populates the page with local attractions and restaurants
   }
 });
