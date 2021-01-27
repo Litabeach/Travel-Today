@@ -15,7 +15,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="map"></div>
+
+  <!-- Jumbotron for Title -->
+  <div class="jumbotron" style="background-color: #2db0c7 ; color: white;">
+    <h1><center>Travel Today</center></h1>
+  </div>
+
+  <!-- Form for Searching City -->
   <form>
     <div class="form-group col">
       <label for="search">Search for a city: </label>
@@ -24,6 +30,11 @@
     <button type="submit" class="btn btn-primary" id="search">Search</button>
     <div id="cities-buttons"></div>
   </form>
+  <br>
+
+  <!-- Google Map -->
+  <div id="map"></div>
+  
   
   <header></header>
   <aside></aside>
