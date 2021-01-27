@@ -4,8 +4,6 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 10,
-    //   this is the meat of the app -- zoom, select long/lat, styles
-    //  how to implement places in here 
   });
 }
   
@@ -15,5 +13,14 @@ function initMap() {
 $("#search").on("click", function (event) {
   event.preventDefault();
   var city = $("#enter-city").val().trim();
+    if (city) {
+      cities.push(city);
+      //run function that populates the page with local attractions and restaurants
+  }
 });
 
+var city = "Minneapolis"
+
+geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
+
+console.log(geolocateURL)
