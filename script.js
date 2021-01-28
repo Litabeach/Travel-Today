@@ -40,6 +40,11 @@ $("#search").on("click", function (event) {
   var city = $("#enter-city").val().trim();
   if (city) {
     initMap(city)
+
+  // constructing location details HTML 
+  var cityName = $("<h1>").text(city);
+  $("#location-div").append(cityName);
+  
   // here run the function that populates the page with local attractions and restaurants
   }
 });
