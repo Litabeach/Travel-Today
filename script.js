@@ -13,7 +13,6 @@ function initMap(city) {
     error: function (xhr, status, error) {
       var errorMessage = xhr.status + ': ' + xhr.statusText
       alert('Error - ' + errorMessage);
-
     },
     success: function (response) {
       //setting the variables for longitude and latitude to plug in to line 25 to center:
@@ -23,7 +22,7 @@ function initMap(city) {
       //  gets the map, sets parameters:
       map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: latOne, lng: lonOne },
-        zoom: 12,
+        zoom: 14,
       });
 
       var request = {
