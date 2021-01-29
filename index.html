@@ -14,37 +14,35 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
+   <!--Restaurant search Result-->
+   <div class= "restaurant-container">Restaurant result goes here </div>
+       <!--Attraction Search Results-->
+       <div class= "attract-container">Attraction result goes here</div>
   <!-- Jumbotron for Title -->
-  <div class="jumbotron" style="background-color: #2db0c7 ; color: white;">
-    <h1><center>Travel Today</center></h1>
-  </div>
-
-  <!-- Form for Searching City -->
-  <form>
-    <div class="form-group col">
-      <label for="search">Search for a city: </label>
-      <input class="form-control" id="enter-city" placeholder="Enter city">
+    <div class="jumbotron" style="background-color: #2db0c7 ; color: white;">
+      <h1><center>Travel Today</center></h1>
     </div>
-    <button type="submit" class="btn btn-primary" id="search">Search</button>
-    <div id="cities-buttons"></div>
-  </form>
-  <br>
+      <nav class="navbar navbar-expand-xlg navbar-light">
+  <!-- Form for Searching City -->
+  <div class= "map-container">
+      <form>
+        <div class="form-group col">
+            <label for="search">Search for a city: </label>
+            <input class="form-control" id="enter-city" placeholder="Enter city">
+        </div>
+        <button type="submit" class="btn btn-primary" id="search">Search</button>
+            <div id="cities-buttons"></div>
+      </form>
+      <br>
+      <!-- Google Map -->
+      <div id="map"></div>
 
-  <!-- Google Map -->
-  <div id="map"></div>
+        <!-- Location Information -->
+      <div id="location-div"></div>
+    </div>
 
-  <!-- Location Information -->
-  <div id="location-div"></div>
-
-  <!--Restaurant search Result-->
-
-    <div>Restaurant result goes here </div>
-
-    <!--Attraction Search Results-->
-
-    <div>Attraction result goes here</div>
 
     <!--Saved items goes here-->
     <div>Saved results</div>
