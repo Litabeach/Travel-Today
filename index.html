@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&display=swap" rel="stylesheet">
     <title>Travel Today</title>
     <!-- google maps -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -17,18 +19,14 @@
 <body>
 
   <!-- Jumbotron for Title -->
-  <div class="jumbotron" style="background-color: #2db0c7 ; color: white;">
-    <h1><center>Travel Today</center></h1>
+  <div class="jumbotron">
+    <h1><center>Travel<em><strong>Today</strong></em></center></h1>
   </div>
 
   <!-- Form for Searching City -->
-  <form>
-    <div class="form-group col">
-      <label for="search">Search for a city: </label>
-      <input class="form-control" id="enter-city" placeholder="Enter city">
-    </div>
-    <button type="submit" class="btn btn-primary" id="search">Search</button>
-    <div id="cities-buttons"></div>
+  <form class="example" action="/action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="button" id="search" class="btn btn-primary btn-sm">Search</button>
   </form>
   <br>
 
