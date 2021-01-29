@@ -44,7 +44,12 @@ $("#search").on("click", function (event) {
   // constructing location details HTML 
   var cityName = $("<h1>").text(city);
   $("#location-div").append(cityName);
+
+  $("#location-div").empty();
+  $("#location-div").append(cityName);
   
   // here run the function that populates the page with local attractions and restaurants
+  
   }
 });
+
