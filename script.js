@@ -31,31 +31,6 @@ success: function (response) {
   });
   marker.setMap(map);
   }});
-  nearbyURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latOne,lonOne + "&radius=1500&type=restaurant=&key=AIzaSyBnSoYvrdN8o3qt17rQzeCUE9bJJj2k8DE"
-console.log(nearbyURL)
-
-  // AJAX call for nearbyURL
-$.ajax({
-  url: nearbyURL,
-  method: "GET"
-
-})
-.then(function (yellow) {
-  var eatName = yellow.results.name;
-  var eatPhoto = yellow.results.photos[2];
-  // var eatPhoto = yellow.results.photos.photo_reference;
-  var eatDiv = $("<div>");
-
-  var eatNameEl = $("<h1>");
-  eatNameEl.attr(eatName);
-
-  var eatPhotoEl = $("<img>");
-  eatPhotoEl.attr("src", eatPhoto);
-
-  $(".restaurant-container-md").append(eatDiv);
-  eatDiv.append(eatNameEl);
-  eatDiv.append(eatPhotoEl);
-});
 }
 
 function getRestaurants(latOne,lonOne) {
