@@ -41,11 +41,10 @@ function initMap(city) {
           for (var i = 0; i < 5; i++) {
             var name = results[i].name;
             var placeID = results[i].place_id;
-            // var photo = results[i].photos[0].html_attributions[0];
+            var photo = results[i].photos[0].getUrl
             var rating = results[i].rating;
             // var hours = results[i].opening_hours.isOpen
             // console.log(hours)
-            // console.log(photo)
             // add a price level and change # to $$$$
             //set restaurant div = to HTML rest cont div
             var restarauntDiv = $(".restaurant-container-md")
@@ -60,14 +59,15 @@ function initMap(city) {
             var ratingEl = $("<p>");
             ratingEl.html("Rating: " + rating + " stars");
 
-            // //photo
-            // var photoEl = $("<img>");
-            // photoEl.attr("src", photo);
+            //photo
+            var photoEl = $("<img class='photo-size'>");
+            photoEl.attr("src", photo);
+            
         
             //add it to the page
             (restarauntDiv).append(nameEl);
             (restarauntDiv).append(ratingEl);
-            // (restarauntDiv).append(photoEl);
+            (restarauntDiv).append(photoEl);
             // (restarauntDiv).append(hoursEl);
 
             var marker = new google.maps.Marker({

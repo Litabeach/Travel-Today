@@ -50,3 +50,9 @@ h1 {
 .map-container-md{
     float: right;
 }
+
+.photo-size{
+    width: 20px;
+    height: 20px;
+
+}
