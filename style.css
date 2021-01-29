@@ -5,3 +5,15 @@
     width: 350px;
 }
   
+.restaurantContainer{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
+.attractContainer{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
