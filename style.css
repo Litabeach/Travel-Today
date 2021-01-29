@@ -25,8 +25,26 @@ h1 {
     text-shadow: 2px 2px #f79b13
 }
   
+<<<<<<< HEAD
 .jumbotron {
     background-color: turquoise;
     opacity: 75%;
     background-size: cover;
   }
+=======
+.restaurant-container{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
+.attract-container{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
+.map-container{
+
+}
+>>>>>>> 22210e9eef8d8add0db29041f94b45545c652360
