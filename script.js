@@ -9,10 +9,13 @@ console.log(geolocateURL)
   // AJAX call for geolocate
 $.ajax({
   url: geolocateURL,
-  method: "GET"
-
-})
-  .then(function (response) {
+  method: "GET",
+  error: function(xhr, status, error){
+    var errorMessage = xhr.status + ': ' + xhr.statusText
+    alert('Error - ' + errorMessage);
+  
+},
+success: function (response) {
     //setting the variables for longitude and latitude to plug in to line 20 to center:
     var latOne = response.results[0].geometry.location.lat
     var lonOne = response.results[0].geometry.location.lng
@@ -24,14 +27,11 @@ $.ajax({
     });
       var marker = new google.maps.Marker({
         position: { lat: latOne, lng: lonOne },
-        title:"You wanna go here for xyz!",
+        title:"You will find joy here!",
   });
   marker.setMap(map);
-  
-  });
-  
+  }});
 }
-
 
 // on-click event for search button
 $("#search").on("click", function (event) {
