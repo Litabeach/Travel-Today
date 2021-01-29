@@ -30,11 +30,11 @@ function initMap(city) {
         radius: 1500,
         type: ['restaurant'],
       };
-      // var request = {
-      //   location: new google.maps.LatLng(latOne, lonOne),
-      //   radius: 1500,
-      //   type: ['lodging']
-      // };
+      var request2 = {
+        location: new google.maps.LatLng(latOne, lonOne),
+        radius: 1500,
+        type: ['lodging']
+      };
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -46,7 +46,7 @@ function initMap(city) {
             // var hours = results[i].opening_hours.isOpen
             // console.log(hours)
             // console.log(photo)
-
+            // add a price level and change # to $$$$
             //set restaurant div = to HTML rest cont div
             var restarauntDiv = $(".restaurant-container-md")
 
@@ -87,7 +87,60 @@ function initMap(city) {
         }
         console.log(results, status)
         
-      });
+      }
+      );service.nearbySearch(request2, function (results, status){
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < 5; i++) {
+            var name = results[i].name;
+            var placeID = results[i].place_id;
+            // var photo = results[i].photos[0].html_attributions[0];
+            var rating = results[i].rating;
+            // var hours = results[i].opening_hours.isOpen
+            // console.log(hours)
+            // console.log(photo)
+            // add a price level and change # to $$$$
+            //set restaurant div = to HTML rest cont div
+            var hotelDiv = $(".attract-container-md")
+
+            //create a <p> for the name, call it nameEl and set the value of name to the name variable
+            var nameEl = $("<p>");
+            nameEl.html(name);
+
+            // var hoursEl = $("<p>");
+            // hoursEl.html(hours);
+
+            var ratingEl = $("<p>");
+            ratingEl.html("Rating: " + rating + " stars");
+
+            // //photo
+            // var photoEl = $("<img>");
+            // photoEl.attr("src", photo);
+        
+            //add it to the page
+            (hotelDiv).append(nameEl);
+            (hotelDiv).append(ratingEl);
+            // (restarauntDiv).append(photoEl);
+            // (restarauntDiv).append(hoursEl);
+
+            var marker = new google.maps.Marker({
+              place:{
+                placeId: placeID,
+                location: results[i].geometry.location
+            },
+              title: name,
+             
+
+            });
+
+
+            marker.setMap(map);
+          }
+          map.setCenter(results[0].geometry.location);
+        }
+        console.log(results, status)
+        
+      }
+      );
     }
   });
 }
