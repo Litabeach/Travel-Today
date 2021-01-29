@@ -37,15 +37,19 @@ function initMap(city) {
       };
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, function (results, status) {
+        $(".restaurant-container-md").empty();
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < 3; i++) {
             var name = results[i].name;
             var placeID = results[i].place_id;
             var photo = results[i].photos[0].getUrl
             var rating = results[i].rating;
+            var price = results[i].price_level;
+            var address = results[i].vicinity;
+
             // var hours = results[i].opening_hours.isOpen
             // console.log(hours)
-            // add a price level and change # to $$$$
+
             //set restaurant div = to HTML rest cont div
             var restarauntDiv = $(".restaurant-container-md")
 
@@ -55,6 +59,8 @@ function initMap(city) {
 
             // var hoursEl = $("<p>");
             // hoursEl.html(hours);
+            var addressEl = $("<p>");
+            addressEl.html(address);
 
             var ratingEl = $("<p>");
             ratingEl.html("Rating: " + rating + " stars");
@@ -62,43 +68,62 @@ function initMap(city) {
             //photo
             var photoEl = $("<img class='photo-size'>");
             photoEl.attr("src", photo);
-            
-        
+
+            //price
+            var priceEl = $("<p>");
+            priceEl.html(price);
+            //change to for loop?
+            // for (var i = 0; i < price.length; i++)
+            if (price == 1) {
+              priceEl = "$"
+            }
+            if (price == 2) {
+              priceEl = "$$"
+            }
+            if (price == 3) {
+              priceEl = "$$$"
+            }
+            if (price == 4) {
+              priceEl = "$$$$"
+            }
+            if (price == 5) {
+              priceEl = "$$$$$"
+            }
+
             //add it to the page
-            (restarauntDiv).append(nameEl);
-            (restarauntDiv).append(ratingEl);
-            (restarauntDiv).append(photoEl);
+            restarauntDiv.append(nameEl);
+            restarauntDiv.append(addressEl);
+            restarauntDiv.append(ratingEl);
+            restarauntDiv.append(priceEl);
+            restarauntDiv.append(photoEl);
             // (restarauntDiv).append(hoursEl);
 
             var marker = new google.maps.Marker({
-              place:{
+              place: {
                 placeId: placeID,
                 location: results[i].geometry.location
-            },
+              },
               title: name,
-             
-
             });
-
-
             marker.setMap(map);
           }
           map.setCenter(results[0].geometry.location);
         }
         console.log(results, status)
-        
       }
-      );service.nearbySearch(request2, function (results, status){
+      ); service.nearbySearch(request2, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < 5; i++) {
+          $(".attract-container-md").empty()
+          for (var i = 0; i < 3; i++) {
             var name = results[i].name;
             var placeID = results[i].place_id;
             var photo = results[i].photos[0].getUrl
             var rating = results[i].rating;
+            var address = results[i].vicinity
+
             // var hours = results[i].opening_hours.isOpen
             // console.log(hours)
-            // console.log(photo)
-            // add a price level and change # to $$$$
+
             //set restaurant div = to HTML rest cont div
             var hotelDiv = $(".attract-container-md")
 
@@ -115,55 +140,36 @@ function initMap(city) {
             //photo
             var photoEl = $("<img class='photo-size'>");
             photoEl.attr("src", photo);
-        
+
+            //address
+            var addressEl = $("<p>");
+            addressEl.html(address);
+
             //add it to the page
-            (hotelDiv).append(nameEl);
-            (hotelDiv).append(ratingEl);
-            (hotelDiv).append(photoEl);
+            hotelDiv.append(nameEl);
+            hotelDiv.append(addressEl);
+            hotelDiv.append(ratingEl);
+            hotelDiv.append(photoEl);
             // (restarauntDiv).append(hoursEl);
 
             var marker = new google.maps.Marker({
-              place:{
+              place: {
                 placeId: placeID,
                 location: results[i].geometry.location
-            },
+              },
               title: name,
-             
-
             });
-
 
             marker.setMap(map);
           }
           map.setCenter(results[0].geometry.location);
         }
         console.log(results, status)
-        
       }
       );
     }
   });
 }
-
-
-    //leaving this for reference
-    // .then(function (yellow) {
-    //   var eatName = yellow.results[i].name;
-    //   var eatPhoto = yellow.results[i].photos[2];
-    //   // var eatPhoto = yellow.results[i].photos.photo_reference;
-    //   var eatDiv = $("<div>");
-
-    //   var eatNameEl = $("<h1>");
-    //   eatNameEl.attr(eatName);
-
-    //   var eatPhotoEl = $("<img>");
-    //   eatPhotoEl.attr("src", eatPhoto);
-
-    //   $(".restaurant-container-md").append(eatDiv);
-    //   eatDiv.append(eatNameEl);
-    //   eatDiv.append(eatPhotoEl);
-    // });
-
 
 // on-click event for search button
 $("#search").on("click", function (event) {
