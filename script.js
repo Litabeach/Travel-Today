@@ -3,64 +3,88 @@ let marker;
 
 function initMap(city) {
   // geolocate URL
-geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
-// console.log(geolocateURL)
+  geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
+  // console.log(geolocateURL)
 
   // AJAX call for geolocate
-$.ajax({
-  url: geolocateURL,
-  method: "GET",
-  error: function(xhr, status, error){
-    var errorMessage = xhr.status + ': ' + xhr.statusText
-    alert('Error - ' + errorMessage);
-  
-},
-success: function (response) {
-    //setting the variables for longitude and latitude to plug in to line 25 to center:
-    var latOne = response.results[0].geometry.location.lat
-    var lonOne = response.results[0].geometry.location.lng
+  $.ajax({
+    url: geolocateURL,
+    method: "GET",
+    error: function (xhr, status, error) {
+      var errorMessage = xhr.status + ': ' + xhr.statusText
+      alert('Error - ' + errorMessage);
 
-    //  gets the map, sets parameters:
+    },
+    success: function (response) {
+      //setting the variables for longitude and latitude to plug in to line 25 to center:
+      var latOne = parseFloat(response.results[0].geometry.location.lat)
+      var lonOne = parseFloat(response.results[0].geometry.location.lng)
+
+      //  gets the map, sets parameters:
       map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: latOne, lng: lonOne },
-        zoom: 10,
-    });
-      var marker = new google.maps.Marker({
-        position: { lat: latOne, lng: lonOne },
-        title:"You will find joy here!",
+        zoom: 12,
+      });
+
+      var request = {
+        location: new google.maps.LatLng(latOne, lonOne),
+        radius: 1500,
+        type: ['restaurant']
+      };
+      // var request = {
+      //   location: new google.maps.LatLng(latOne, lonOne),
+      //   radius: 1500,
+      //   type: ['lodging']
+      // };
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch(request, function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            // createMarker(results[i]);
+            var name = results[i].name
+            var placeID = results[i].place_id
+            var marker = new google.maps.Marker({
+              place:{
+                placeId: placeID,
+                location: results[i].geometry.location
+            },
+              title: name,
+            });
+            var eatDiv = $("<div>");
+            var eatNameEl = $("<h1>");
+            eatNameEl.attr(name);
+            $(".restaurant-container-md").append(eatDiv);
+            eatDiv.append(eatNameEl);
+
+            marker.setMap(map);
+         
+          }
+          map.setCenter(results[0].geometry.location);
+        }
+        console.log(results, status)
+      });
+    }
   });
-  marker.setMap(map);
-  }});
 }
 
-function getRestaurants(latOne,lonOne) {
-  // nearbysearches URL
-nearbyURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latOne,lonOne + "&radius=1500&type=restaurant=&key=AIzaSyBnSoYvrdN8o3qt17rQzeCUE9bJJj2k8DE"
-console.log(nearbyURL)
+    //leaving this for reference
+    // .then(function (yellow) {
+    //   var eatName = yellow.results[i].name;
+    //   var eatPhoto = yellow.results[i].photos[2];
+    //   // var eatPhoto = yellow.results[i].photos.photo_reference;
+    //   var eatDiv = $("<div>");
 
-  // AJAX call for nearbyURL
-$.ajax({
-  url: nearbyURL,
-  method: "GET"
+    //   var eatNameEl = $("<h1>");
+    //   eatNameEl.attr(eatName);
 
-})
-.then(function (yellow) {
-  var eatName = yellow.results.name;
-  var eatPhoto = yellow.results.photos[2];
-  // var eatPhoto = yellow.results.photos.photo_reference;
-  var eatDiv = $("<div>");
+    //   var eatPhotoEl = $("<img>");
+    //   eatPhotoEl.attr("src", eatPhoto);
 
-  var eatNameEl = $("<h1>");
-  eatNameEl.attr(eatName);
+    //   $(".restaurant-container-md").append(eatDiv);
+    //   eatDiv.append(eatNameEl);
+    //   eatDiv.append(eatPhotoEl);
+    // });
 
-  var eatPhotoEl = $("<img>");
-  eatPhotoEl.attr("src", eatPhoto);
-
-  $(".restaurant-container-md").append(eatDiv);
-  eatDiv.append(eatNameEl);
-  eatDiv.append(eatPhotoEl);
-});
-}
 
 // on-click event for search button
 $("#search").on("click", function (event) {
@@ -69,15 +93,11 @@ $("#search").on("click", function (event) {
   var city = $("#enter-city").val().trim();
   if (city) {
     initMap(city);
-    getRestaurants(latOne, lonOne) 
-  // here run the function that populates the page with local attractions and restaurants
   }
 });
-
 
   // constructing location details HTML 
   // var cityName = $("<h1>").text(city);
   // $("#location-div").append(cityName);
   // $("#location-div").empty();
   // $("#location-div").append(cityName);
-  
