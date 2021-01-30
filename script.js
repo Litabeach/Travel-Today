@@ -245,19 +245,19 @@ function addRestaurants(latOne, lonOne) {
         //change to for loop?
         // for (var i = 0; i < price.length; i++)
         if (price == 1) {
-          priceEl = "$"
+          priceEl = "Price Level: $"
         }
         if (price == 2) {
-          priceEl = "$$"
+          priceEl = "Price Level: $$"
         }
         if (price == 3) {
-          priceEl = "$$$"
+          priceEl = "Price Level: $$$"
         }
         if (price == 4) {
-          priceEl = "$$$$"
+          priceEl = "Price Level: $$$$"
         }
         if (price == 5) {
-          priceEl = "$$$$$"
+          priceEl = "Price Level: $$$$$"
         }
 
         //line break
