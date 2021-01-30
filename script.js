@@ -36,7 +36,7 @@ function initMap(city) {
       });
 
       userLocate();
-      
+
       var request = {
         location: new google.maps.LatLng(latOne, lonOne),
         radius: 1500,
