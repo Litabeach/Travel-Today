@@ -167,11 +167,11 @@ function addHotels(latOne, lonOne) {
 
 
         // (restarauntDiv).append(hoursEl);
-
+       
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
-            location: results[i].geometry.location
+            location: results[i].geometry.location,
           },
           title: name,
         });
@@ -282,7 +282,7 @@ function addRestaurants(latOne, lonOne) {
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
-            location: results[i].geometry.location
+            location: results[i].geometry.location,
           },
           title: name,
         });
