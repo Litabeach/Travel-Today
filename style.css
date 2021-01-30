@@ -1,5 +1,12 @@
 .jumbotron{
+    background-color: rgb(253, 232, 139);
+    border: 10px solid rgb(138, 209, 221);
     text-align: center;
+}
+
+.jumPic{
+    width: 300px;
+    height: 300px;
 }
 .container-sm{
     max-width: 100%;
