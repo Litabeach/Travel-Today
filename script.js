@@ -29,9 +29,8 @@ function initMap(city) {
       var latOne = parseFloat(response.results[0].geometry.location.lat)
       var lonOne = parseFloat(response.results[0].geometry.location.lng)
 
-      //  gets the map, sets parameters:
+      //  changes map center to searched city, runs functions for restaurants and hotels:
       map.setCenter({ lat: latOne, lng: lonOne })
-
       addRestaurants(latOne, lonOne);
       addHotels(latOne, lonOne);
     }
