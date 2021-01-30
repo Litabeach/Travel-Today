@@ -33,3 +33,17 @@
     height: 500px;
     margin-right: 20px;
 }
+
+.jumbotron {
+    background-color: turquoise;
+    opacity: 75%;
+    background-size: cover;
+  } 
+
+  h1 {
+    font-family:'Fraunces', serif;
+    font-size: 50px;
+    color:black;
+    text-shadow: 2px 2px #f79b13;
+    text-align: center;
+}
