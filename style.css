@@ -47,3 +47,8 @@
     text-shadow: 2px 2px #f79b13;
     text-align: center;
 }
+
+.photo-size{
+    height:100px;
+    width: 100px;
+}
