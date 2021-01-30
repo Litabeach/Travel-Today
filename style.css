@@ -1,6 +1,6 @@
 .jumbotron{
-    background-color: #ffe77e;
-    border: 10px solid rgb(102, 200, 207);
+    background-color: rgb(255, 179, 87);
+    border: 22px ridge #D69A69;
     text-align: center;
 }
 
@@ -8,7 +8,9 @@
     width: 300px;
     height: 300px;
 }
-
+ #hold{
+     background-color: rgb(248, 236, 221);
+ }
 
 .container-sm{
     max-width: 100%;
@@ -19,26 +21,29 @@
 .map{
     height: 600px;
     width: auto;
-
+    margin-top: 100px;
+    border: 22px ridge #D69A69;
 }
 .map-search{
-    border: 3px solid #ffe77e;
-    outline: 6px solid rgb(102, 200, 207);
-
+    border: 5px solid #B88846;
 }
+
 .restaurant-container-md{
     height: auto;
-    border: 3px solid #ffe77e;
-    outline: 6px solid rgb(102, 200, 207);
+    border: 22px ridge #D69A69;
+    font-family: 'Bebas Neue', cursive;
 }
 .attract-container-md {
     height: auto;
-    border: 3px solid #ffe77e;
-    outline: 6px solid rgb(102, 200, 207);
+    border: 22px ridge #D69A69;
+    font-family: 'Bebas Neue', cursive;
 }
 .photo-size{
-height:100px;
-width:100px;
+    height:100px;
+    width:100px;
+    margin: 20px 20px;
+    border: 3px solid #ffe77e;
+    outline: 3px solid rgb(102, 200, 207);
 }
 
 #search{
