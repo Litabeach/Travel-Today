@@ -180,9 +180,3 @@ $("#search").on("click", function (event) {
     initMap(city);
   }
 });
-
-  // constructing location details HTML 
-  // var cityName = $("<h1>").text(city);
-  // $("#location-div").append(cityName);
-  // $("#location-div").empty();
-  // $("#location-div").append(cityName);
