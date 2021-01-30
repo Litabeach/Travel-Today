@@ -54,7 +54,7 @@ function initMap(city) {
       service.nearbySearch(request, function (results, status) {
         $(".restaurant-container-md").empty();
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < 3; i++) {
+          for (var i = 0; i < 10; i++) {
             var name = results[i].name;
             var placeID = results[i].place_id;
             var photo = results[i].photos[0].getUrl
@@ -66,6 +66,16 @@ function initMap(city) {
 
             //set restaurant div = to HTML rest cont div
             var restarauntDiv = $(".restaurant-container-md")
+
+            //creating new row 
+            var createRow= $("<div class= 'row'>")
+            
+            //creating new image column
+            var newImgCol= $("<div class= 'col-md-5'>")
+
+            //creating new description column
+            var newDescriptCol= $("<div class='col-md-7'>")
+
 
             //create a <p> for the name, call it nameEl and set the value of name to the name variable
             var nameEl = $("<p>");
@@ -104,13 +114,25 @@ function initMap(city) {
               priceEl = "$$$$$"
             }
 
+            //line break
+            linebreak = $("<br>")
+
+            //save button
+            var restBtn = $("<button>");
+            restBtn.html("Save to List");
+
             //add it to the page
-            restarauntDiv.append(nameEl);
-            restarauntDiv.append(addressEl);
-            restarauntDiv.append(ratingEl);
-            restarauntDiv.append(priceEl);
-            restarauntDiv.append(photoEl);
-            // (restarauntDiv).append(hoursEl);
+            restarauntDiv.append(createRow);
+            createRow.append(newImgCol);
+            createRow.append(newDescriptCol);
+            newImgCol.append(photoEl);
+            newDescriptCol.append(nameEl);
+            newDescriptCol.append(addressEl);
+            newDescriptCol.append(ratingEl);
+            newDescriptCol.append(priceEl);
+            newDescriptCol.append(linebreak);
+            newDescriptCol.append(restBtn);
+            
 
             var marker = new google.maps.Marker({
               place: {
@@ -128,7 +150,7 @@ function initMap(city) {
       service.nearbySearch(request2, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           $(".attract-container-md").empty()
-          for (var i = 0; i < 3; i++) {
+          for (var i = 0; i < 10; i++) {
             var name = results[i].name;
             var placeID = results[i].place_id;
             var photo = results[i].photos[0].getUrl
@@ -168,14 +190,19 @@ function initMap(city) {
             var addressEl = $("<p>");
             addressEl.html(address);
 
+            //save button
+            var hotelBtn = $("<button>");
+            hotelBtn.html("Save to List");
+
             //add it to the page
             hotelDiv.append(newRow);
             newRow.append(imageCol);
-            imageCol.append(photoEl);
             newRow.append(descriptionCol);
+            imageCol.append(photoEl);
             descriptionCol.append(nameEl);
             descriptionCol.append(addressEl);
             descriptionCol.append(ratingEl);
+            descriptionCol.append(hotelBtn);
 
             // (restarauntDiv).append(hoursEl);
 
