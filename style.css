@@ -1,54 +1,25 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: 600px 800px;
-    grid-gap: 40px;
-}
-
-.grid-child-top {
-    border: 2px solid black;
-}
-
-.grid-child-bottom {
-    border: 2px solid black;
-}
-
-.rest {
-    height: 500px;
-    margin-left: 20px;
-    border: 5px solid gray;
-}
-
-.map {
-    height: 500px;
-    margin-right: 20px;
-}
-
-.hotel {
-    height: 500px;
-    margin-left: 20px;
-    border: 5px solid gray;
-}
-
-.saved {
-    height: 500px;
-    margin-right: 20px;
-}
-
-.jumbotron {
-    background-color: turquoise;
-    opacity: 75%;
-    background-size: cover;
-  } 
-
-  h1 {
-    font-family:'Fraunces', serif;
-    font-size: 50px;
-    color:black;
-    text-shadow: 2px 2px #f79b13;
+.jumbotron{
     text-align: center;
 }
+.container-sm{
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid black;
+}
+.map{
+    height: 600px;
+    width: auto;
+    border: 1px solid black;
 
-.photo-size{
-    height:100px;
-    width: 100px;
+}
+.map-search{
+    border: 1px solid black;
+
+}
+.restaurant-container-md{
+    height: 300px;
+    
+}
+.attract-container-md {
+    height: 300px;
 }
