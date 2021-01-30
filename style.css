@@ -27,12 +27,12 @@
 
 }
 .restaurant-container-md{
-    height: 300px;
+    height: auto;
     border: 3px solid #ffe77e;
     outline: 6px solid rgb(102, 200, 207);
 }
 .attract-container-md {
-    height: 300px;
+    height: auto;
     border: 3px solid #ffe77e;
     outline: 6px solid rgb(102, 200, 207);
 }
