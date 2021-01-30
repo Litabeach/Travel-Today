@@ -22,26 +22,33 @@
   <div class="jumbotron">
     <h1>Travel<em><strong>Today</strong></em></h1>
   </div>
-          <!--Restaurant search Result-->
-        <div class= "restaurant-container-md">Restaurant result goes here. </div>
-          <!--Attraction Search Results-->
-          <div class= "attract-container-md">Hotel result goes here.</div>
-    <!-- Form for Searching City -->
-    <div class= "map-container-md">
-      <form class="example" action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search" id="enter-city">
-        <button type="button" id="search" class="btn btn-primary btn-sm">Search</button>
-      </form>
-      <br>
-      <!-- Google Map -->
-      <div id="map"></div>
-      <!-- Location Information -->
-      <div id="location-div"></div>
-    </div>  
+  <form class="example" action="/action_page.php">
+    <input type="text" placeholder="Search.." name="search" id="enter-city">
+    <button type="button" id="search" class="btn btn-primary btn-sm">Search</button>
+  </form>
+      <div class="grid-container">
 
+        <div class="grid-child-top rest restaurant-container-md">
+            Restaurant results go here
+        </div>
+    
+        <div class="grid-child-top map" id="map">
+            Map
+        </div>
+      
+    </div>
+<br> <br>
+    <div class="grid-container">
 
+        <div class="grid-child-bottom hotel attract-container-md">
+            Hotel results go here
+        </div>
+    
+        <div class="grid-child-bottom saved">
+            Saved
+        </div>
     <!--Saved items goes here-->
-    <div>Saved results</div>
+
 
 
     

@@ -1,15 +1,6 @@
  /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-#map {
-    position: relative;
-  width: 350px;
-  height: 550px;
-  background: white;
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
-  color: white;
-  box-shadow: 20px 20px rgba(0,0,0,.15);
-  transition: all .4s ease;
-}
+
 #map:hover {
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
   box-shadow: 10px 10px rgba(0,0,0,.25);
@@ -31,22 +22,55 @@ h1 {
     background-size: cover;
     text-align:center;
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 600px 800px;
+    grid-gap: 200px;
+  }
+
 .restaurant-container-md{
-    width: 500px;
     height: 500px;
-    padding: 40px;
     border: 5px solid gray;
-    margin: 20px;
+    margin-left: 20px;
 
 }
 .attract-container-md{
-    width: 500px;
     height: 500px;
-    padding: 40px;
     border: 5px solid gray;
-    margin: 20px;
+    margin-left: 20px;
 }
 
 .map-container-md{
-    float: right;
+    height: 500px;
+    margin-right: 20px;
+    margin-left: 100px;
+}
+
+.saved {
+    height: 500px;
+    margin-right: 20px;
+    border: 5px solid gray;
+}
+
+.rest {
+    height: 500px;
+    margin-left: 20px;
+    border: 5px solid gray;
+}
+
+.map {
+    height: 500px;
+    margin-right: 10px;
+}
+
+.hotel {
+    height: 500px;
+    margin-left: 20px;
+    border: 5px solid gray;
+}
+
+.saved {
+    height: 500px;
+    margin-right: 20px;
 }
