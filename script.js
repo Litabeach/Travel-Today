@@ -34,15 +34,12 @@ function initMap(city) {
         center: { lat: latOne, lng: lonOne },
         zoom: 14,
       });
-
       userLocate();
       addRestaurants(latOne, lonOne);
-      addHotels(latOne, lonOne);
-      
+      addHotels(latOne, lonOne); 
    }
   });
 }
-
 
 function userLocate() {
   infoWindow = new google.maps.InfoWindow();
@@ -51,7 +48,6 @@ function userLocate() {
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -59,8 +55,10 @@ function userLocate() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
+          addRestaurants(pos);
+          addHotels(pos);
           infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
+          infoWindow.setContent("You are here");
           infoWindow.open(map);
           map.setCenter(pos);
         },
@@ -68,6 +66,8 @@ function userLocate() {
           handleLocationError(true, infoWindow, map.getCenter());
         }
       );
+      // console.log(pos)
+
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
@@ -189,7 +189,6 @@ function addRestaurants(latOne, lonOne){
     type: ['restaurant']
   };
 
-
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, function (results, status) {
     $(".restaurant-container-md").empty();
@@ -273,7 +272,6 @@ function addRestaurants(latOne, lonOne){
         newDescriptCol.append(linebreak);
         newDescriptCol.append(restBtn);
         
-
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
