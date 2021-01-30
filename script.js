@@ -55,8 +55,9 @@ function userLocate() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          addRestaurants(pos);
-          addHotels(pos);
+          $(".col-md-5").removeClass("hide");
+          addRestaurants(pos.lat, pos.lng);
+          addHotels(pos.lat, pos.lng);
           infoWindow.setPosition(pos);
           infoWindow.setContent("You are here");
           infoWindow.open(map);
@@ -84,6 +85,7 @@ $("#search").on("click", function (event) {
   if (city) {
     initMap(city);
     addRestaurants();
+    addHotels();
   }
 });
 
@@ -101,7 +103,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function addHotels(latOne, lonOne) {
   var request2 = {
     location: new google.maps.LatLng(latOne, lonOne),
-    radius: 1500,
+    radius: 2500,
     type: ['lodging']
   };
 
@@ -110,11 +112,15 @@ function addHotels(latOne, lonOne) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       $(".attract-container-md").empty()
       for (var i = 0; i < 10; i++) {
+        if (!results[i].photos || !results[i].name || !results[i].place_id
+           || !results[i].rating || !results[i].vicinity) {
+          continue;
+        }
         var name = results[i].name;
         var placeID = results[i].place_id;
         var photo = results[i].photos[0].getUrl
         var rating = results[i].rating;
-        var address = results[i].vicinity
+        var address = results[i].vicinity;
 
         // var hours = results[i].opening_hours.isOpen
         // console.log(hours)
@@ -162,6 +168,7 @@ function addHotels(latOne, lonOne) {
         descriptionCol.append(addressEl);
         descriptionCol.append(ratingEl);
         descriptionCol.append(hotelBtn);
+        
 
         // (restarauntDiv).append(hoursEl);
 
