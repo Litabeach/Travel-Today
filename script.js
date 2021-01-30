@@ -30,14 +30,11 @@ function initMap(city) {
       var lonOne = parseFloat(response.results[0].geometry.location.lng)
 
       //  gets the map, sets parameters:
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: latOne, lng: lonOne },
-        zoom: 14,
-      });
-      userLocate();
+      map.setCenter({ lat: latOne, lng: lonOne })
+
       addRestaurants(latOne, lonOne);
-      addHotels(latOne, lonOne); 
-   }
+      addHotels(latOne, lonOne);
+    }
   });
 }
 
@@ -103,7 +100,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function addHotels(latOne, lonOne) {
   var request2 = {
     location: new google.maps.LatLng(latOne, lonOne),
-    radius: 2500,
+    radius: 1500,
     type: ['lodging']
   };
 
@@ -112,8 +109,8 @@ function addHotels(latOne, lonOne) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       $(".attract-container-md").empty()
       for (var i = 0; i < 10; i++) {
-        if (!results[i].photos || !results[i].name || !results[i].place_id
-           || !results[i].rating || !results[i].vicinity) {
+        if (!results[i] || !results[i].photos || !results[i].name || !results[i].place_id
+          || !results[i].rating || !results[i].vicinity) {
           continue;
         }
         var name = results[i].name;
@@ -168,7 +165,7 @@ function addHotels(latOne, lonOne) {
         descriptionCol.append(addressEl);
         descriptionCol.append(ratingEl);
         descriptionCol.append(hotelBtn);
-        
+
 
         // (restarauntDiv).append(hoursEl);
 
@@ -189,10 +186,10 @@ function addHotels(latOne, lonOne) {
   );
 }
 
-function addRestaurants(latOne, lonOne){
+function addRestaurants(latOne, lonOne) {
   var request = {
     location: new google.maps.LatLng(latOne, lonOne),
-    radius: 1500,
+    radius: 5000,
     type: ['restaurant']
   };
 
@@ -201,6 +198,10 @@ function addRestaurants(latOne, lonOne){
     $(".restaurant-container-md").empty();
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < 10; i++) {
+        if (!results[i] || !results[i].photos || !results[i].name || !results[i].place_id
+          || !results[i].rating || !results[i].vicinity || !results[i].price_level) {
+          continue;
+        }
         var name = results[i].name;
         var placeID = results[i].place_id;
         var photo = results[i].photos[0].getUrl
@@ -214,13 +215,13 @@ function addRestaurants(latOne, lonOne){
         var restarauntDiv = $(".restaurant-container-md")
 
         //creating new row 
-        var createRow= $("<div class= 'row'>")
-        
+        var createRow = $("<div class= 'row'>")
+
         //creating new image column
-        var newImgCol= $("<div class= 'col-md-5'>")
+        var newImgCol = $("<div class= 'col-md-5'>")
 
         //creating new description column
-        var newDescriptCol= $("<div class='col-md-7'>")
+        var newDescriptCol = $("<div class='col-md-7'>")
 
 
         //create a <p> for the name, call it nameEl and set the value of name to the name variable
@@ -278,7 +279,7 @@ function addRestaurants(latOne, lonOne){
         newDescriptCol.append(priceEl);
         newDescriptCol.append(linebreak);
         newDescriptCol.append(restBtn);
-        
+
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
