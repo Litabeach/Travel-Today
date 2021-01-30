@@ -32,11 +32,13 @@
     height: auto;
     border: 22px ridge #D69A69;
     font-family: 'Bebas Neue', cursive;
+    overflow: scroll;
 }
 .attract-container-md {
     height: auto;
     border: 22px ridge #D69A69;
     font-family: 'Bebas Neue', cursive;
+    overflow: scroll;
 }
 .photo-size{
     height:100px;
