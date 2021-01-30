@@ -63,8 +63,6 @@ function userLocate() {
           handleLocationError(true, infoWindow, map.getCenter());
         }
       );
-      // console.log(pos)
-
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
@@ -96,6 +94,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+//function that grabs hotel information from Google Places API and paints it on the page
 function addHotels(latOne, lonOne) {
   var request2 = {
     location: new google.maps.LatLng(latOne, lonOne),
@@ -108,6 +107,7 @@ function addHotels(latOne, lonOne) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       $(".attract-container-md").empty()
       for (var i = 0; i < 10; i++) {
+        //if results are not available i.e there is not photo for a listing, moves on to the next listing.
         if (!results[i] || !results[i].photos || !results[i].name || !results[i].place_id
           || !results[i].rating || !results[i].vicinity) {
           continue;
@@ -118,10 +118,7 @@ function addHotels(latOne, lonOne) {
         var rating = results[i].rating;
         var address = results[i].vicinity;
 
-        // var hours = results[i].opening_hours.isOpen
-        // console.log(hours)
-
-        //set restaurant div = to HTML rest cont div
+        //set restaurant div = to HTML div
         var hotelDiv = $(".attract-container-md")
 
         //creating new row
@@ -133,13 +130,11 @@ function addHotels(latOne, lonOne) {
         //create new description column
         var descriptionCol = $("<div class='col-md-7'>")
 
-        //create a <p> for the name, call it nameEl and set the value of name to the name variable
+        // name
         var nameEl = $("<p>");
         nameEl.html(name);
 
-        // var hoursEl = $("<p>");
-        // hoursEl.html(hours);
-
+        //rating
         var ratingEl = $("<p>");
         ratingEl.html("Rating: " + rating + " stars");
 
@@ -164,9 +159,6 @@ function addHotels(latOne, lonOne) {
         descriptionCol.append(addressEl);
         descriptionCol.append(ratingEl);
         descriptionCol.append(hotelBtn);
-
-
-        // (restarauntDiv).append(hoursEl);
        
         var marker = new google.maps.Marker({
           place: {
@@ -178,7 +170,6 @@ function addHotels(latOne, lonOne) {
             url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
           },
         });
-
         marker.setMap(map);
       }
       map.setCenter(results[0].geometry.location);
@@ -204,49 +195,38 @@ function addRestaurants(latOne, lonOne) {
           || !results[i].rating || !results[i].vicinity || !results[i].price_level) {
           continue;
         }
+        //set variables
         var name = results[i].name;
         var placeID = results[i].place_id;
         var photo = results[i].photos[0].getUrl
         var rating = results[i].rating;
         var price = results[i].price_level;
         var address = results[i].vicinity;
-        // var hours = results[i].opening_hours.isOpen
-        // console.log(hours)
-
-        //set restaurant div = to HTML rest cont div
+    
+        //create divs for each 
         var restarauntDiv = $(".restaurant-container-md")
 
-        //creating new row 
         var createRow = $("<div class= 'row'>")
 
-        //creating new image column
         var newImgCol = $("<div class= 'col-md-5'>")
 
-        //creating new description column
         var newDescriptCol = $("<div class='col-md-7'>")
 
-
-        //create a <p> for the name, call it nameEl and set the value of name to the name variable
         var nameEl = $("<p>");
         nameEl.html(name);
 
-        // var hoursEl = $("<p>");
-        // hoursEl.html(hours);
         var addressEl = $("<p>");
         addressEl.html(address);
 
         var ratingEl = $("<p>");
         ratingEl.html("Rating: " + rating + " stars");
 
-        //photo
         var photoEl = $("<img class='photo-size'>");
         photoEl.attr("src", photo);
 
-        //price
         var priceEl = $("<p>");
         priceEl.html(price);
-        //change to for loop?
-        // for (var i = 0; i < price.length; i++)
+        //change price 1-5 to $$$
         if (price == 1) {
           priceEl = "Price Level: $"
         }
