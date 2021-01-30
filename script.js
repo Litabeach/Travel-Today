@@ -40,8 +40,15 @@ function initMap(city) {
       var request = {
         location: new google.maps.LatLng(latOne, lonOne),
         radius: 1500,
-        type: ['restaurants']
+        type: ['restaurant']
       };
+
+      var request2 = {
+        location: new google.maps.LatLng(latOne, lonOne),
+        radius: 1500,
+        type: ['lodging']
+      };
+
 
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, function (results, status) {
@@ -117,13 +124,6 @@ function initMap(city) {
           map.setCenter(results[0].geometry.location);
         }
       })
-
-      var request2 = {
-        location: new google.maps.LatLng(latOne, lonOne),
-        radius: 1500,
-        type: ['lodging']
-      };
-
 
       service.nearbySearch(request2, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
