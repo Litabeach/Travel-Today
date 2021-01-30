@@ -29,13 +29,13 @@
 }
 
 .restaurant-container-md{
-    height: auto;
+    height: 350px;
     border: 22px ridge #D69A69;
     font-family: 'Bebas Neue', cursive;
     overflow: scroll;
 }
 .attract-container-md {
-    height: auto;
+    height: 350px;
     border: 22px ridge #D69A69;
     font-family: 'Bebas Neue', cursive;
     overflow: scroll;
