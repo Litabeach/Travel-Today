@@ -104,7 +104,7 @@ function initMap(city) {
             restarauntDiv.append(createRow);
             createRow.append(newImgCol);
             newImgCol.append(photoEl);
-            newImgCol.append(newDescriptCol);
+            createRow.append(newDescriptCol);
             newDescriptCol.append(nameEl);
             newDescriptCol.append(addressEl);
             newDescriptCol.append(ratingEl);
