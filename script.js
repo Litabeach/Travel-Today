@@ -100,6 +100,13 @@ function initMap(city) {
               priceEl = "$$$$$"
             }
 
+            //line break
+            linebreak = $("<br>")
+
+            //save button
+            var restBtn = document.createElement("button");
+            restBtn.innerHTML = "Save to List";
+
             //add it to the page
             restarauntDiv.append(createRow);
             createRow.append(newImgCol);
@@ -109,6 +116,8 @@ function initMap(city) {
             newDescriptCol.append(addressEl);
             newDescriptCol.append(ratingEl);
             newDescriptCol.append(priceEl);
+            newDescriptCol.append(linebreak);
+            newDescriptCol.append(restBtn);
             
             // (restarauntDiv).append(hoursEl);
 
@@ -168,6 +177,10 @@ function initMap(city) {
             var addressEl = $("<p>");
             addressEl.html(address);
 
+            //save button
+            var hotelBtn = document.createElement("button");
+            hotelBtn.innerHTML = "Save to List";
+
             //add it to the page
             hotelDiv.append(newRow);
             newRow.append(imageCol);
@@ -176,6 +189,8 @@ function initMap(city) {
             descriptionCol.append(nameEl);
             descriptionCol.append(addressEl);
             descriptionCol.append(ratingEl);
+
+            descriptionCol.append(hotelBtn);
             
             // (restarauntDiv).append(hoursEl);
 
