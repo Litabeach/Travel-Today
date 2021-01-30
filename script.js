@@ -104,14 +104,14 @@ function initMap(city) {
             linebreak = $("<br>")
 
             //save button
-            var restBtn = document.createElement("button");
-            restBtn.innerHTML = "Save to List";
+            var restBtn = $("<button>");
+            restBtn.html("Save to List");
 
             //add it to the page
             restarauntDiv.append(createRow);
             createRow.append(newImgCol);
-            newImgCol.append(photoEl);
             createRow.append(newDescriptCol);
+            newImgCol.append(photoEl);
             newDescriptCol.append(nameEl);
             newDescriptCol.append(addressEl);
             newDescriptCol.append(ratingEl);
@@ -178,18 +178,17 @@ function initMap(city) {
             addressEl.html(address);
 
             //save button
-            var hotelBtn = document.createElement("button");
-            hotelBtn.innerHTML = "Save to List";
+            var hotelBtn = $("<button>");
+            hotelBtn.html("Save to List");
 
             //add it to the page
             hotelDiv.append(newRow);
             newRow.append(imageCol);
-            imageCol.append(photoEl);
             newRow.append(descriptionCol);
+            imageCol.append(photoEl);
             descriptionCol.append(nameEl);
             descriptionCol.append(addressEl);
             descriptionCol.append(ratingEl);
-
             descriptionCol.append(hotelBtn);
             
             // (restarauntDiv).append(hoursEl);
