@@ -5,7 +5,7 @@ let marker;
 $(document).ready(function () {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 44.9778, lng: -93.2650 },
-    zoom: 13,
+    zoom: 14,
   });
   userLocate();
 });
@@ -174,6 +174,9 @@ function addHotels(latOne, lonOne) {
             location: results[i].geometry.location,
           },
           title: name,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+          },
         });
 
         marker.setMap(map);
@@ -283,6 +286,9 @@ function addRestaurants(latOne, lonOne) {
           place: {
             placeId: placeID,
             location: results[i].geometry.location,
+          },
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
           },
           title: name,
         });
