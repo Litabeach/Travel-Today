@@ -51,3 +51,7 @@
 #search{
     background-color: rgb(102, 200, 207);
 }
+
+.hide {
+    display: none;
+}

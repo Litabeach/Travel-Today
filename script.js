@@ -43,12 +43,6 @@ function initMap(city) {
         type: ['restaurant']
       };
 
-      var request2 = {
-        location: new google.maps.LatLng(latOne, lonOne),
-        radius: 1500,
-        type: ['lodging']
-      };
-
 
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, function (results, status) {
@@ -146,6 +140,12 @@ function initMap(city) {
           map.setCenter(results[0].geometry.location);
         }
       })
+
+      var request2 = {
+        location: new google.maps.LatLng(latOne, lonOne),
+        radius: 1500,
+        type: ['lodging']
+      };
 
       service.nearbySearch(request2, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -259,6 +259,7 @@ function userLocate() {
 // on-click event for search button
 $("#search").on("click", function (event) {
   event.preventDefault();
+  $(".col-md-5").removeClass("hide")
   //sets the variable "city" to the value of the input div
   var city = $("#enter-city").val().trim();
   if (city) {
