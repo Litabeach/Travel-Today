@@ -53,6 +53,16 @@ function initMap(city) {
             //set restaurant div = to HTML rest cont div
             var restarauntDiv = $(".restaurant-container-md")
 
+            //creating new row 
+            var createRow= $("<div class= 'row'>")
+            
+            //creating new image column
+            var newImgCol= $("<div class= 'col-md-5'>")
+
+            //creating new description column
+            var newDescriptCol= $("<div class='col-md-7'>")
+
+
             //create a <p> for the name, call it nameEl and set the value of name to the name variable
             var nameEl = $("<p>");
             nameEl.html(name);
@@ -91,11 +101,15 @@ function initMap(city) {
             }
 
             //add it to the page
-            restarauntDiv.append(nameEl);
-            restarauntDiv.append(addressEl);
-            restarauntDiv.append(ratingEl);
-            restarauntDiv.append(priceEl);
-            restarauntDiv.append(photoEl);
+            restarauntDiv.append(createRow);
+            createRow.append(newImgCol);
+            newImgCol.append(photoEl);
+            newImgCol.append(newDescriptCol);
+            newDescriptCol.append(nameEl);
+            newDescriptCol.append(addressEl);
+            newDescriptCol.append(ratingEl);
+            newDescriptCol.append(priceEl);
+            
             // (restarauntDiv).append(hoursEl);
 
             var marker = new google.maps.Marker({
