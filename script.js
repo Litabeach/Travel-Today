@@ -5,7 +5,7 @@ let marker;
 $(document).ready(function () {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 44.9778, lng: -93.2650 },
-    zoom: 14,
+    zoom: 13,
   });
   userLocate();
 });
@@ -99,7 +99,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function addHotels(latOne, lonOne) {
   var request2 = {
     location: new google.maps.LatLng(latOne, lonOne),
-    radius: 1500,
+    radius: 3000,
     type: ['lodging']
   };
 
@@ -188,7 +188,7 @@ function addHotels(latOne, lonOne) {
 function addRestaurants(latOne, lonOne) {
   var request = {
     location: new google.maps.LatLng(latOne, lonOne),
-    radius: 5000,
+    radius: 3000,
     type: ['restaurant']
   };
 
