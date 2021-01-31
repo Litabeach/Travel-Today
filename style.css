@@ -9,15 +9,24 @@
     padding-left: 50px;
 }
 .jumbotron{
-    background-color: rgb(255, 179, 87);
-    border: 22px ridge #D69A69;
+    background-color:  #fac05f;
+    /* border: 22px ridge #ffffff;  */
     text-align: center;
 }
-
 .jumPic{
     width: 300px;
     height: 300px;
 }
+#enter-city{
+    margin-left: 20%;
+    margin-top: 25px;
+    width: 60%;
+    font-family: 'verdana';
+    padding-left: 1%;
+}
+/* #hold{
+    background-color: rgb(248, 236, 221);
+} */
 .saveitem{
     max-width: 100%;
     max-height: 100%;
@@ -25,10 +34,6 @@
     font-family: 'verdana';
     font-size: larger;
 }
- #hold{
-     background-color: rgb(248, 236, 221);
- }
-
 .container-sm{
     max-width: 100%;
     max-height: 100%;
@@ -46,22 +51,22 @@
 .map{
     height: 600px;
     width: auto;
-    margin-top: 100px;
-    border: 22px ridge #D69A69;
+    margin-top: 40px;
+    /* border: 22px ridge #D69A69; */
 }
 .map-search{
-    border: 5px solid #B88846;
+    border: 22px ridge #70d0cf;
 }
 
 .restaurant-container-md{
     height: 350px;
-    border: 22px ridge #D69A69;
+    border: 22px ridge #70d0cf;
     font-family: 'Bebas Neue', cursive;
     overflow: scroll;
 }
 .hotel-container-md {
     height: 350px;
-    border: 22px ridge #D69A69;
+    border: 22px ridge  #70d0cf;
     font-family: 'Bebas Neue', cursive;
     overflow: scroll;
 }
