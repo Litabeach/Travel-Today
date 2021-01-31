@@ -130,7 +130,7 @@ function addHotels(latOne, lonOne) {
         //create new description column
         var descriptionCol = $("<div class='col-md-7'>")
 
-        // name
+        //name
         var nameEl = $("<p>");
         nameEl.html(name);
 
@@ -152,13 +152,9 @@ function addHotels(latOne, lonOne) {
 
         //add it to the page
         hotelDiv.append(newRow);
-        newRow.append(imageCol);
-        newRow.append(descriptionCol);
+        newRow.append(imageCol, descriptionCol);
         imageCol.append(photoEl);
-        descriptionCol.append(nameEl);
-        descriptionCol.append(addressEl);
-        descriptionCol.append(ratingEl);
-        descriptionCol.append(hotelBtn);
+        descriptionCol.append(nameEl, addressEl, ratingEl, hotelBtn);
        
         var marker = new google.maps.Marker({
           place: {
@@ -260,15 +256,9 @@ function addRestaurants(latOne, lonOne) {
 
         //add it to the page
         restarauntDiv.append(createRow);
-        createRow.append(newImgCol);
-        createRow.append(newDescriptCol);
+        createRow.append(newImgCol, newDescriptCol);
         newImgCol.append(photoEl);
-        newDescriptCol.append(nameEl);
-        newDescriptCol.append(addressEl);
-        newDescriptCol.append(ratingEl);
-        newDescriptCol.append(priceEl);
-        newDescriptCol.append(linebreak);
-        newDescriptCol.append(restBtn);
+        newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn);
 
         var marker = new google.maps.Marker({
           place: {
