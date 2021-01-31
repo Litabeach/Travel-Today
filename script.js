@@ -268,6 +268,8 @@ function addRestaurants(latOne, lonOne) {
           var testOne = $("<p>");
           testOne.html("Whoop!!! The button was clicked!");
           userStoryDiv.prepend(testOne);
+          //adding element data to local storage
+          localStorage.setItem("example", JSON.stringify(example));
         });
 
         //add markers to map
