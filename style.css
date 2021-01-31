@@ -61,14 +61,18 @@
 .restaurant-container-md{
     height: 350px;
     border: 22px ridge #70d0cf;
-    font-family: 'Bebas Neue', cursive;
+    font-family: Verdana;
     overflow: scroll;
+    line-height: 8px;
+    padding-top: 5%;
 }
 .hotel-container-md {
     height: 350px;
     border: 22px ridge  #70d0cf;
-    font-family: 'Bebas Neue', cursive;
+    font-family: Verdana;
     overflow: scroll;
+    line-height: 8px;
+    padding-top: 5%;
 }
 .photo-size{
     height:100px;
@@ -77,7 +81,20 @@
     border: 3px solid #ffe77e;
     outline: 3px solid rgb(102, 200, 207);
 }
-
+.results-title{
+    font-family: 'Bebas Neue', cursive;
+    font-size: x-large;
+}
+#add-to-savelist{
+    background-color: #fac05f;
+    text-align: center;
+    font-family: 'verdana';
+    padding: 10px;
+    width: 50%;
+    border-radius: 5px;
+    border: #fac05f;
+    margin-top: 10px;
+}
 #search{
     background-color: rgb(102, 200, 207);
 }
