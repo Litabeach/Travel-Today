@@ -119,7 +119,7 @@ function addHotels(latOne, lonOne) {
         var address = results[i].vicinity;
 
         //set restaurant div = to HTML div
-        var hotelDiv = $(".attract-container-md")
+        var hotelDiv = $(".hotel-container-md")
 
         //creating new row
         var newRow = $("<div class= 'row'>")
