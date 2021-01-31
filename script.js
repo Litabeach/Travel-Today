@@ -147,7 +147,7 @@ function addHotels(latOne, lonOne) {
         addressEl.html(address);
 
         //save button
-        var hotelBtn = $("<button>");
+        var hotelBtn = $("<button id='add-to-savelist'>");
         hotelBtn.html("Save to List");
 
         //add it to the page
@@ -247,7 +247,7 @@ function addRestaurants(latOne, lonOne) {
         linebreak = $("<br>")
 
         //save button
-        var restBtn = $("<button>");
+        var restBtn = $("<button id='add-to-savelist'>");
         restBtn.html("Save to List");
 
         //add it to the page
