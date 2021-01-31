@@ -131,7 +131,7 @@ function addHotels(latOne, lonOne) {
         var descriptionCol = $("<div class='col-md-7'>")
 
         //name
-        var nameEl = $("<p>");
+        var nameEl = $(("<p class='results-title'>"));
         nameEl.html(name);
 
         //rating
@@ -212,7 +212,7 @@ function addRestaurants(latOne, lonOne) {
         var newDescriptCol = $("<div class='col-md-7'>")
 
         //name
-        var nameEl = $("<p>");
+        var nameEl = $("<p class='results-title'>");
         nameEl.html(name);
 
         //address
