@@ -264,7 +264,7 @@ function addRestaurants(latOne, lonOne) {
         $(restBtn).click(function(){
           console.log("The button was clicked.");
           //creating list element
-          var userStoryDiv = $(".user-story");
+          var userStoryDiv = $(".saveitem");
           var testOne = $("<p>");
           testOne.html("Whoop!!! The button was clicked!");
           userStoryDiv.prepend(testOne);
