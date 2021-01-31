@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=IBM+Plex+Mono&family=Yantramanav&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=IBM+Plex+Mono&family=Yantramanav&display=swap" rel="stylesheet">
     <title>Travel Today</title>
     <!-- google maps -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -17,78 +17,79 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDLoW4NIwbwoBdIEKhVbZQvJm8_DT-Las&libraries=places&v=weekly"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnSoYvrdN8o3qt17rQzeCUE9bJJj2k8DE&libraries=places"
       defer></script>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Jumbotron for Title -->
+    <header>
+        <div class="header-bar">Welcome to Our Site!</div> 
+        <div class="jumbotron">
+            <div id="hold">
+                <img class="jumPic" src="Assets/Travel_Today_Logo_Final.png">
+            </div>
+        </div>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+        <nav class= "saveitem"><p>*Saved Items Test Holder Div*</p></nav>
+    </header>
 
- <!-- Jumbotron for Title -->
- <header>
-    <div class="header-bar">Welcome to Our Site!</div> 
-    <div class="jumbotron">
-      <div id="hold">
-        <img class="jumPic" src="Assets/Travel_Today_Logo_Final.png">
-      </div>
-    </div>
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="bg-dark p-4">
-        <h5 class="text-white h4">Collapsed content</h5>
-        <span class="text-muted">Toggleable via the navbar brand.</span>
-      </div>
-    </div>
-      <nav class= "saveitem">
-      </nav>
- </header>
+    <!-- Grey Line Break -->
+    <div class="line-break"><hr></div>
 
-<div class="line-break"><hr></div>
+    <!-- Div for User Story -->
+    <div class="user-story">
+        <p>Welcome to TravelToday! I'm a person who is traveling to a city and want to find the closest restaurants and attractions to where I am currently.</p>
+        <br>
+        <p>More text about other things. Even more paragraph text about stuff. More text about other things.Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff.</p>
+    </div> 
 
-<div class="user-story">
-    <p>Welcome to TravelToday! I'm a person who is traveling to a city and want to find the closest restaurants and attractions to where I am currently.</p>
-    <br>
-    <p>More text about other things. Even more paragraph text about stuff. More text about other things.Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff. More text about other things. Even more paragraph text about stuff.</p>
-</div> 
-
-<div class="container-sm">
-      <div class= "row">
-          <div class= "col-md-7 map-search">
-              <form class="example" action="/action_page.php">
-                  <input type="text" placeholder="Search.." name="search" id="enter-city">
-                  <button type="button" id="search" class="btn btn-primary btn-sm">Search</button>
-              </form>
-                  <div class="map" id="map">
-                      Map
-                  </div>
-                  <br>
-          </div>
-
-          <div class= "col-md-5 hide">
+    <!-- Map Container Div -->
+    <div class="container-sm">
+        <div class= "row">
+            <div class= "col-md-7 map-search">
+                <form class="example" action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search" id="enter-city">
+                    <button type="button" id="search" class="btn btn-primary btn-sm">Search</button>
+                </form>
+                    <div class="map" id="map">
+                        Map
+                    </div>
+                    <br>
+            </div>
+            <!-- Restaurant Container Div -->
+            <div class= "col-md-5 hide">
               <div class ="row">
                   <div class= "col-sm-12">
                     <h4>What to Eat</h4>
-                      <div class="restaurant-container-md">
-                      </div>
+                    <div class="restaurant-container-md"></div>
                   </div>
               </div>
-              <div class="row">
-                  <div class="col-md-12">
+            <!-- Hotel Container Div -->
+            <div class="row">
+                <div class="col-md-12">
                     <h4>Where to Stay </h4>
-                      <div class="hotel-container-md">
-                      </div>
+                    <div class="hotel-container-md"></div>
+                </div>
+            </div>         
+            </div>
+        </div>    
+    </div>
 
-                  </div>
+    <!-- Grey Line Break -->
+    <div class="line-break"><hr></div>
+    
+    <!-- Footer Bar -->
+    <div class="footer">
+        <p>Designed and Developed by Lita Beach, Melissa Hoang, Bao Xiong, and Helen Lindberg. Supported by Blake Dragos and Google.</p>
+    </div>
 
-              </div>
-                      
-          </div>
-      </div>
-          
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
+</body>
 
 </html>

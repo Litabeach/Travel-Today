@@ -18,6 +18,13 @@
     width: 300px;
     height: 300px;
 }
+.saveitem{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 20px;
+    font-family: 'verdana';
+    font-size: larger;
+}
  #hold{
      background-color: rgb(248, 236, 221);
  }
@@ -27,7 +34,7 @@
     max-height: 100%;
     margin: 5px;
 }
-.line-break {
+.line-break{
     margin: 20px;
 }
 .user-story{
@@ -77,4 +84,14 @@
 .custom-map-control-button{
     height:30px;
     color: rgb(51, 45, 45)
+}
+.footer {
+    background-color: #fac05f;
+    height: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-family: 'verdana';
 }
