@@ -260,6 +260,17 @@ function addRestaurants(latOne, lonOne) {
         newImgCol.append(photoEl);
         newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn);
 
+        //button on click event - simple test
+        $(restBtn).click(function(){
+          console.log("The button was clicked.");
+          //creating list element
+          var userStoryDiv = $(".user-story");
+          var testOne = $("<p>");
+          testOne.html("Whoop!!! The button was clicked!");
+          userStoryDiv.prepend(testOne);
+        });
+
+        //add markers to map
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
