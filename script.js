@@ -118,7 +118,7 @@ function addHotels(latOne, lonOne) {
         var rating = results[i].rating;
         var address = results[i].vicinity;
 
-        //set restaurant div = to HTML div
+        //set hotel div = to HTML div
         var hotelDiv = $(".hotel-container-md")
 
         //creating new row
@@ -203,27 +203,35 @@ function addRestaurants(latOne, lonOne) {
         var price = results[i].price_level;
         var address = results[i].vicinity;
     
-        //create divs for each 
+        //set restaurant div = to HTML div
         var restarauntDiv = $(".restaurant-container-md")
 
+        //creating new row
         var createRow = $("<div class= 'row'>")
 
+        //create new image column
         var newImgCol = $("<div class= 'col-md-5'>")
 
+        //create new description column
         var newDescriptCol = $("<div class='col-md-7'>")
 
+        //name
         var nameEl = $("<p>");
         nameEl.html(name);
 
+        //address
         var addressEl = $("<p>");
         addressEl.html(address);
 
+        //rating
         var ratingEl = $("<p>");
         ratingEl.html("Rating: " + rating + " stars");
 
+        //photo
         var photoEl = $("<img class='photo-size'>");
         photoEl.attr("src", photo);
 
+        //price
         var priceEl = $("<p>");
         priceEl.html(price);
         //change price 1-5 to $$$
