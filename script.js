@@ -192,12 +192,12 @@ function addRestaurants(latOne, lonOne) {
           continue;
         }
         //set variables
-        var name = results[i].name;
-        var placeID = results[i].place_id;
-        var photo = results[i].photos[0].getUrl
-        var rating = results[i].rating;
-        var price = results[i].price_level;
-        var address = results[i].vicinity;
+        let name = results[i].name;
+        let placeID = results[i].place_id;
+        let photo = results[i].photos[0].getUrl
+        let rating = results[i].rating;
+        let price = results[i].price_level;
+        let address = results[i].vicinity;
     
         //set restaurant div = to HTML div
         var restarauntDiv = $(".restaurant-container-md")
@@ -269,8 +269,15 @@ function addRestaurants(latOne, lonOne) {
           testOne.html("Whoop!!! The button was clicked!");
           userStoryDiv.prepend(testOne);
           //adding element data to local storage
-          localStorage.setItem("example", JSON.stringify(example));
+          for (let i = 0; i < name.length; i++){
+          localStorage.setItem("nameSave", JSON.stringify(name));
+          localStorage.setItem("addressSave", JSON.stringify(address));
+          localStorage.setItem("ratingSave", JSON.stringify(rating));
+          localStorage.setItem("priceSave", JSON.stringify(price));
+          }
+
         });
+      
 
         //add markers to map
         var marker = new google.maps.Marker({
@@ -289,3 +296,4 @@ function addRestaurants(latOne, lonOne) {
     }
   })
 }
+
