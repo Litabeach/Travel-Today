@@ -1,6 +1,6 @@
 .header-bar{
     background-color: #70d0cf;
-    text-align: left;
+    text-align: center;
     color: white;
     font-family: 'verdana';
     max-width: 100%;
@@ -9,13 +9,28 @@
     padding-left: 50px;
 }
 .jumbotron{
-    background-color:  #fac05f;
-    /* border: 22px ridge #ffffff;  */
     text-align: center;
+    background-color:  #ffbf6b;
+    /* border: 22px ridge #ffffff;  */
 }
+
 .jumPic{
     width: 300px;
     height: 300px;
+}
+
+.blue {
+    background-color:  #70d0cf;
+}
+.peach {
+    background-color: peachpuff;
+}
+h1{
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+}
+.txt{
+    color: #70d0cf;
 }
 #enter-city{
     margin-left: 20%;
