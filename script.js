@@ -155,6 +155,23 @@ function addHotels(latOne, lonOne) {
         newRow.append(imageCol, descriptionCol);
         imageCol.append(photoEl);
         descriptionCol.append(nameEl, addressEl, ratingEl, hotelBtn);
+
+        //button on click event
+        $(hotelBtn).click(function(){
+          console.log("The button was clicked.");
+          //creating list element
+          var userStoryDiv = $(".saveitem");
+          var testOne = $("<p>");
+          testOne.html("Whoop!!! The button was clicked!");
+          userStoryDiv.prepend(testOne);
+          //adding element data to local storage
+          for (let i = 0; i < name.length; i++){
+          localStorage.setItem("nameSave", JSON.stringify(name));
+          localStorage.setItem("addressSave", JSON.stringify(address));
+          localStorage.setItem("ratingSave", JSON.stringify(rating));
+          localStorage.setItem("priceSave", JSON.stringify(price));
+          }
+        });
        
         var marker = new google.maps.Marker({
           place: {
@@ -275,9 +292,7 @@ function addRestaurants(latOne, lonOne) {
           localStorage.setItem("ratingSave", JSON.stringify(rating));
           localStorage.setItem("priceSave", JSON.stringify(price));
           }
-
         });
-      
 
         //add markers to map
         var marker = new google.maps.Marker({
