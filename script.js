@@ -12,9 +12,7 @@ $(document).ready(function () {
 
 //populate the map with markers, places info according to what user had searched
 function initMap(city) {
-  // geolocate URL
   geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
-  // console.log(geolocateURL)
 
   // AJAX call for geolocate
   $.ajax({
@@ -37,6 +35,7 @@ function initMap(city) {
   });
 }
 
+//function to set the center of the map to the user location
 function userLocate() {
   infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
@@ -118,35 +117,19 @@ function addHotels(latOne, lonOne) {
         var rating = results[i].rating;
         var address = results[i].vicinity;
 
-        //set hotel div = to HTML div
+        // create new divs and add variables in them
         var hotelDiv = $(".hotel-container-md")
-
-        //creating new row
         var newRow = $("<div class= 'row'>")
-
-        //create new image column
         var imageCol = $("<div class= 'col-md-5'>")
-
-        //create new description column
         var descriptionCol = $("<div class='col-md-7'>")
-
-        //name
         var nameEl = $(("<p class='results-title'>"));
         nameEl.html(name);
-
-        //rating
         var ratingEl = $("<p>");
         ratingEl.html("Rating: " + rating + " stars");
-
-        //photo
         var photoEl = $("<img class='photo-size'>");
         photoEl.attr("src", photo);
-
-        //address
         var addressEl = $("<p>");
         addressEl.html(address);
-
-        //save button
         var hotelBtn = $("<button id='add-to-savelist'>");
         hotelBtn.html("Save to List");
 
@@ -172,7 +155,7 @@ function addHotels(latOne, lonOne) {
           localStorage.setItem("priceSave", JSON.stringify(price));
           }
         });
-       
+       //create markers on map
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
@@ -187,7 +170,6 @@ function addHotels(latOne, lonOne) {
       }
       map.setCenter(results[0].geometry.location);
     }
-    console.log(results, status)
   }
   );
 }
@@ -216,35 +198,19 @@ function addRestaurants(latOne, lonOne) {
         let price = results[i].price_level;
         let address = results[i].vicinity;
     
-        //set restaurant div = to HTML div
+          // create new divs and add variables in them
         var restarauntDiv = $(".restaurant-container-md")
-
-        //creating new row
         var createRow = $("<div class= 'row'>")
-
-        //create new image column
         var newImgCol = $("<div class= 'col-md-5'>")
-
-        //create new description column
         var newDescriptCol = $("<div class='col-md-7'>")
-
-        //name
         var nameEl = $("<p class='results-title'>");
         nameEl.html(name);
-
-        //address
         var addressEl = $("<p>");
         addressEl.html(address);
-
-        //rating
         var ratingEl = $("<p>");
         ratingEl.html("Rating: " + rating + " stars");
-
-        //photo
         var photoEl = $("<img class='photo-size'>");
         photoEl.attr("src", photo);
-
-        //price
         var priceEl = $("<p>");
         priceEl.html(price);
         //change price 1-5 to $$$
@@ -263,8 +229,6 @@ function addRestaurants(latOne, lonOne) {
         if (price == 5) {
           priceEl = "Price Level: $$$$$"
         }
-
-        //line break
         linebreak = $("<br>")
 
         //save button
