@@ -105,7 +105,7 @@ function addHotels(latOne, lonOne) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request2, function (results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      $(".attract-container-md").empty()
+      $(".hotel-container-md").empty()
       for (var i = 0; i < 10; i++) {
         //if results are not available i.e there is not photo for a listing, moves on to the next listing.
         if (!results[i] || !results[i].photos || !results[i].name || !results[i].place_id
@@ -275,7 +275,6 @@ function addRestaurants(latOne, lonOne) {
           localStorage.setItem("ratingSave", JSON.stringify(rating));
           localStorage.setItem("priceSave", JSON.stringify(price));
           }
-
         });
       
 
