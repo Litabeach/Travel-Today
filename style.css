@@ -71,7 +71,6 @@
     /* border: 22px ridge #70d0cf; */
     font-family: Verdana;
     overflow: scroll;
-    line-height: 8px;
     padding-top: 5%;
     background-color: #f2f2f2;
 }
@@ -80,7 +79,6 @@
     /* border: 22px ridge  #70d0cf; */
     font-family: Verdana;
     overflow: scroll;
-    line-height: 8px;
     padding-top: 5%;
     background-color: #f2f2f2;
 }
