@@ -280,6 +280,13 @@ function addRestaurants(latOne, lonOne) {
           if (foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
           var restaurantSave = [foodNameEl, foodAddressEl, foodRatingEl, foodPriceEl]
           console.log(restaurantSave);
+
+          //append to the page
+          var p = $(".saveItem");
+          linebreak = $("<br>")
+          var nameList = $("<li>");
+          nameList.append(foodNameEl)
+          p.append(nameList);
         }
 
         //add markers to map
