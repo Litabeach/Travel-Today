@@ -78,19 +78,6 @@ function userLocate() {
   });
 }
 
-// on-click event for search button
-$("#search").on("click", function (event) {
-  event.preventDefault();
-  $(".col-md-5").removeClass("hide")
-  //sets the variable "city" to the value of the input div
-  var city = $("#enter-city").val().trim();
-  if (city) {
-    initMap(city);
-    addRestaurants();
-    addHotels();
-  }
-});
-
 //handle errors for user location
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -139,17 +126,16 @@ function addHotels(latOne, lonOne) {
         photoEl.attr("src", photo);
         var addressEl = $("<p>");
         addressEl.html(address);
-        var hotelBtn = $("<button class='add-to-savelist'>");
+        var hotelBtn = $("<button id='add-to-savelist'>");
         hotelBtn.html("Save to List");
-        var modalBtn = $("<button class='myBtn'>");
-        modalBtn.html("Expand");
+        var modalHotelBtn = $("<button class='myHotelBtn'>");
+        modalHotelBtn.html("Expand");
 
         //add it to the page
         hotelDiv.append(newRow);
         newRow.append(imageCol, descriptionCol);
         imageCol.append(photoEl);
-        descriptionCol.append(nameEl, addressEl, ratingEl, hotelBtn, modalBtn);
-
+        descriptionCol.append(nameEl, addressEl, ratingEl, hotelBtn, modalHotelBtn);
 
         //save button on click event
         $(hotelBtn).click(function () {
@@ -252,12 +238,16 @@ function addRestaurants(latOne, lonOne) {
         //save button
         var restBtn = $("<button id='add-to-savelist'>");
         restBtn.html("Save to List");
+        var modalRestBtn = $("<button class='myRestBtn'>");
+        modalRestBtn.html("Expand");
 
         //add it to the page
         restarauntDiv.append(createRow);
         createRow.append(newImgCol, newDescriptCol);
         newImgCol.append(photoEl);
-        newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn);
+        newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn, modalRestBtn);
+
+        
 
         //save button on click event
         $(restBtn).click(function () {
@@ -312,21 +302,6 @@ function addRestaurants(latOne, lonOne) {
   })
 }
 
-// When the user clicks on the button, open the modal 
-//do two different buttons for hotels and restaraunts
-$(document).on("click", ".myBtn", function () {
-  var modalNameEl = $("#modal-name")
-  var modalName = $(this).siblings()[0].textContent;
-  modalNameEl.text(modalName)
-
-  modal.style.display = "block";
-});
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
 function openNav() { 
   document.getElementById( 
       "myNav").style.height = "100%"; 
@@ -336,3 +311,68 @@ function closeNav() {
   document.getElementById( 
       "myNav").style.height = "0%"; 
 } 
+
+
+// on-click event for search button
+$("#search").on("click", function (event) {
+  event.preventDefault();
+  $(".col-md-5").removeClass("hide")
+  //sets the variable "city" to the value of the input div
+  var city = $("#enter-city").val().trim();
+  if (city) {
+    initMap(city);
+    addRestaurants();
+    addHotels();
+  }
+});
+
+// When the user clicks on a button with class ".myHotelBtn", open the modal for that listing
+$(document).on("click", ".myHotelBtn", function () {
+  var modalPhotoEl = $("#modal-img")
+  var modalPhoto = $(this).parent().siblings().children().innerHTML;
+  modalPhotoEl.html(modalPhoto)
+  var modalNameEl = $("#modal-name")
+  var modalName = $(this).siblings()[0].textContent;
+  modalNameEl.text(modalName)
+  var modalAddressEl = $("#modal-address")
+  var modalAddress = $(this).siblings()[1].textContent;
+  modalAddressEl.text(modalAddress)
+  var modalRatingEl = $("#modal-rating")
+  var modalRating = $(this).siblings()[2].textContent;
+  modalRatingEl.text(modalRating)
+
+  modal.style.display = "block";
+});
+
+// When the user clicks on a button with class ".myRestBtn", open the modal for that listing
+$(document).on("click", ".myRestBtn", function () {
+  var modalPhotoEl = $("#modal-img")
+  var modalPhoto = $(this).parent().siblings().children().innerHTML;
+  modalPhotoEl.html(modalPhoto)
+  var modalNameEl = $("#modal-name")
+  var modalName = $(this).siblings()[0].textContent;
+  modalNameEl.text(modalName)
+  var modalAddressEl = $("#modal-address")
+  var modalAddress = $(this).siblings()[1].textContent;
+  modalAddressEl.text(modalAddress)
+  var modalRatingEl = $("#modal-rating")
+  var modalRating = $(this).siblings()[2].textContent;
+  modalRatingEl.text(modalRating)
+  var modalPriceEl = $("#modal-price")
+  var modalPrice = $(this).siblings()[3].textContent;
+  modalPriceEl.text(modalPrice)
+
+  modal.style.display = "block";
+});
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
