@@ -107,11 +107,11 @@ function addHotels(latOne, lonOne) {
           || !results[i].rating || !results[i].vicinity) {
           continue;
         }
-        var name = results[i].name;
-        var placeID = results[i].place_id;
-        var photo = results[i].photos[0].getUrl
-        var rating = results[i].rating;
-        var address = results[i].vicinity;
+        let name = results[i].name;
+        let placeID = results[i].place_id;
+        let photo = results[i].photos[0].getUrl
+        let rating = results[i].rating;
+        let address = results[i].vicinity;
 
         // create new divs and add variables in them
         var hotelDiv = $(".hotel-container-md")
@@ -139,20 +139,25 @@ function addHotels(latOne, lonOne) {
 
         //save button on click event
         $(hotelBtn).click(function () {
-          console.log("The button was clicked.");
-          //creating list element
-          var userStoryDiv = $(".saveitem");
-          var testOne = $("<p>");
-          testOne.html("Whoop!!! The button was clicked!");
-          userStoryDiv.prepend(testOne);
           //adding element data to local storage
-          for (let i = 0; i < name.length; i++) {
-            localStorage.setItem("nameSave", JSON.stringify(name));
-            localStorage.setItem("addressSave", JSON.stringify(address));
-            localStorage.setItem("ratingSave", JSON.stringify(rating));
-            localStorage.setItem("priceSave", JSON.stringify(price));
+          for (let i = 0; i < name.length; i++){
+          localStorage.setItem("hotelName", JSON.stringify(name));
+          localStorage.setItem("hotelAddress", JSON.stringify(address));
+          localStorage.setItem("hotelRating", JSON.stringify(rating));
           }
+          // run function to load results
+          loadResults();
         });
+
+        // function to get results from local storage
+        function loadResults() {
+          var hotelName = JSON.parse(localStorage.getItem("hotelName"));
+          var hotelAddress = JSON.parse(localStorage.getItem("hotelAddress"));
+          var hotelRating = JSON.parse(localStorage.getItem("hotelRating"));
+
+          console.log(hotelName, hotelAddress, hotelRating);
+        }
+
         //create markers on map
         var marker = new google.maps.Marker({
           place: {
@@ -244,14 +249,8 @@ function addRestaurants(latOne, lonOne) {
 
         
 
-        //button on click event - simple test
+        //save button on click event
         $(restBtn).click(function () {
-          console.log("The button was clicked.");
-          //creating list element
-          var userStoryDiv = $(".saveitem");
-          var testOne = $("<p>");
-          testOne.html("Whoop!!! The button was clicked!");
-          userStoryDiv.prepend(testOne);
           //adding element data to local storage
           for (let i = 0; i < name.length; i++) {
             localStorage.setItem("nameSave", JSON.stringify(name));
@@ -259,7 +258,26 @@ function addRestaurants(latOne, lonOne) {
             localStorage.setItem("ratingSave", JSON.stringify(rating));
             localStorage.setItem("priceSave", JSON.stringify(price));
           }
+          // run function to load results
+          loadResults();
         });
+
+        // function to get results from local storage
+        function loadResults() {
+          var saveName = JSON.parse(localStorage.getItem("nameSave"));
+          var saveAddress = JSON.parse(localStorage.getItem("addressSave"));
+          var saveRating = JSON.parse(localStorage.getItem("ratingSave"));
+          var savePrice = JSON.parse(localStorage.getItem("priceSave"));
+
+          console.log(saveName, saveAddress, saveRating, savePrice);
+
+          //creating list element
+          var saveDiv = $(".save-test");
+          var saveNameEl = saveName.value
+          var saveTest = $("<p>");
+          saveTest.text(saveNameEl);
+          saveDiv.append(saveTest);
+        }
 
         //add markers to map
         var marker = new google.maps.Marker({
