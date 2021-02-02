@@ -251,10 +251,10 @@ function addRestaurants(latOne, lonOne) {
         $(restBtn).click(function () {
           //adding element data to local storage
           for (let i = 0; i < name.length; i++) {
-            localStorage.setItem("nameSave", JSON.stringify(name));
-            localStorage.setItem("addressSave", JSON.stringify(address));
-            localStorage.setItem("ratingSave", JSON.stringify(rating));
-            localStorage.setItem("priceSave", JSON.stringify(price));
+            localStorage.setItem("food-name", JSON.stringify(name));
+            localStorage.setItem("food-address", JSON.stringify(address));
+            localStorage.setItem("food-rating", JSON.stringify(rating));
+            localStorage.setItem("food-price", JSON.stringify(price));
           }
           // run function to load results
           loadResults();
@@ -262,19 +262,24 @@ function addRestaurants(latOne, lonOne) {
 
         // function to get results from local storage
         function loadResults() {
-          var saveName = JSON.parse(localStorage.getItem("nameSave"));
-          var saveAddress = JSON.parse(localStorage.getItem("addressSave"));
-          var saveRating = JSON.parse(localStorage.getItem("ratingSave"));
-          var savePrice = JSON.parse(localStorage.getItem("priceSave"));
-
-          console.log(saveName, saveAddress, saveRating, savePrice);
-
-          //creating list element
-          var saveDiv = $(".save-test");
-          var saveNameEl = saveName.value
-          var saveTest = $("<p>");
-          saveTest.text(saveNameEl);
-          saveDiv.append(saveTest);
+          var foodName = JSON.parse(localStorage.getItem("food-name"));
+          var foodAddress = JSON.parse(localStorage.getItem("food-address"));
+          var foodRating = JSON.parse(localStorage.getItem("food-rating"));
+          var foodPrice = JSON.parse(localStorage.getItem("food-price"));
+          console.log(foodName, foodAddress, foodRating, foodPrice);
+          
+          //create an array for the restaurant save data
+          let foodNameEl = foodName;
+          let foodAddressEl = foodAddress;
+          let foodRatingEl = ("Rating: " + foodRating + " stars");
+          let foodPriceEl = foodPrice;
+          if (foodPrice == 1) {foodPriceEl = "Price Level: $"}
+          if (foodPrice == 2) {foodPriceEl = "Price Level: $$"}
+          if (foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
+          if (foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
+          if (foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
+          var restaurantSave = [foodNameEl, foodAddressEl, foodRatingEl, foodPriceEl]
+          console.log(restaurantSave);
         }
 
         //add markers to map
