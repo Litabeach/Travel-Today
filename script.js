@@ -283,10 +283,14 @@ function addRestaurants(latOne, lonOne) {
 
           //append to the page
           var p = $(".saveItem");
-          linebreak = $("<br>")
-          var nameList = $("<li>");
-          nameList.append(foodNameEl)
+          // var nameList = $("<a href='nameExpand'>");
+          var nameList = $("<a href='nameExpand'>");
+          nameList.append(foodNameEl);
           p.append(nameList);
+          
+          $(nameList).click(function () {
+            console.log("test");
+          })
         }
 
         //add markers to map
