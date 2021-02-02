@@ -278,18 +278,21 @@ function addRestaurants(latOne, lonOne) {
           if (foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
           if (foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
           if (foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
-          var restaurantSave = [foodNameEl, foodAddressEl, foodRatingEl, foodPriceEl]
-          console.log(restaurantSave);
+          var foodSave = [foodNameEl, foodAddressEl, foodRatingEl, foodPriceEl]
+          console.log(foodSave);
 
           //append to the page
           var p = $(".saveItem");
-          // var nameList = $("<a href='nameExpand'>");
-          var nameList = $("<a href='nameExpand'>");
+          var nameList = $("<li class='name-title'>");
           nameList.append(foodNameEl);
           p.append(nameList);
-          
+          //on click event to get list details
           $(nameList).click(function () {
-            console.log("test");
+            $(test).empty();
+            var linebreak = $("<br>")
+            var test = $("<li>");
+            test.append(foodRatingEl, linebreak, foodPriceEl, linebreak, foodAddressEl);
+            p.append(test);
           })
         }
 
