@@ -1,11 +1,20 @@
 let map;
 let marker;
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
 
 //pulls up a blank map of Minneapolis on load
 $(document).ready(function () {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 44.9778, lng: -93.2650 },
     zoom: 14,
+  });
+  //when map is dragged, runs the functions addRestaurants and addHotels based on the new center of map
+  map.addListener('dragend', function () {
+    var lat = this.getCenter().lat(); 
+    var lng = this.getCenter().lng();
+    addRestaurants(lat, lng);
+    addHotels(lat, lng);
   });
   userLocate();
 });
@@ -130,17 +139,20 @@ function addHotels(latOne, lonOne) {
         photoEl.attr("src", photo);
         var addressEl = $("<p>");
         addressEl.html(address);
-        var hotelBtn = $("<button id='add-to-savelist'>");
+        var hotelBtn = $("<button class='add-to-savelist'>");
         hotelBtn.html("Save to List");
+        var modalBtn = $("<button class='myBtn'>");
+        modalBtn.html("Expand");
 
         //add it to the page
         hotelDiv.append(newRow);
         newRow.append(imageCol, descriptionCol);
         imageCol.append(photoEl);
-        descriptionCol.append(nameEl, addressEl, ratingEl, hotelBtn);
+        descriptionCol.append(nameEl, addressEl, ratingEl, hotelBtn, modalBtn);
 
-        //button on click event - simple test
-        $(hotelBtn).click(function(){
+
+        //save button on click event
+        $(hotelBtn).click(function () {
           console.log("The button was clicked.");
           //adding element data to local storage
           for (let i = 0; i < name.length; i++){
@@ -161,7 +173,7 @@ function addHotels(latOne, lonOne) {
           console.log(hotelName, hotelAddress, hotelRating);
         }
 
-       //create markers on map
+        //create markers on map
         var marker = new google.maps.Marker({
           place: {
             placeId: placeID,
@@ -179,6 +191,7 @@ function addHotels(latOne, lonOne) {
   }
   );
 }
+
 
 function addRestaurants(latOne, lonOne) {
   var request = {
@@ -203,8 +216,8 @@ function addRestaurants(latOne, lonOne) {
         let rating = results[i].rating;
         let price = results[i].price_level;
         let address = results[i].vicinity;
-    
-          // create new divs and add variables in them
+
+        // create new divs and add variables in them
         var restarauntDiv = $(".restaurant-container-md")
         var createRow = $("<div class= 'row'>")
         var newImgCol = $("<div class= 'col-md-5'>")
@@ -247,15 +260,15 @@ function addRestaurants(latOne, lonOne) {
         newImgCol.append(photoEl);
         newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn);
 
-         //button on click event - simple test
-        $(restBtn).click(function(){
+        //button on click event - simple test
+        $(restBtn).click(function () {
           console.log("The button was clicked.");
           //adding element data to local storage
-          for (let i = 0; i < name.length; i++){
-          localStorage.setItem("nameSave", JSON.stringify(name));
-          localStorage.setItem("addressSave", JSON.stringify(address));
-          localStorage.setItem("ratingSave", JSON.stringify(rating));
-          localStorage.setItem("priceSave", JSON.stringify(price));
+          for (let i = 0; i < name.length; i++) {
+            localStorage.setItem("nameSave", JSON.stringify(name));
+            localStorage.setItem("addressSave", JSON.stringify(address));
+            localStorage.setItem("ratingSave", JSON.stringify(rating));
+            localStorage.setItem("priceSave", JSON.stringify(price));
           }
           // run function to load results
           loadResults();
@@ -294,6 +307,21 @@ function addRestaurants(latOne, lonOne) {
       map.setCenter(results[0].geometry.location);
     }
   })
+}
+
+// When the user clicks on the button, open the modal 
+//do two different buttons for hotels and restaraunts
+$(document).on("click", ".myBtn", function () {
+  var modalNameEl = $("#modal-name")
+  var modalName = $(this).siblings()[0].textContent;
+  modalNameEl.text(modalName)
+
+  modal.style.display = "block";
+});
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
 }
 
 function openNav() { 

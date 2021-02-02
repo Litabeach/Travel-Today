@@ -26,7 +26,8 @@ Helen Lindberg <br>
 Melissa Hoang <br>
 Helen Lindberg <br>
 Blake Dragos<br>
-W3 schools
+w3schools.com <br>
+stackoverflow.com
 
 
 ## License

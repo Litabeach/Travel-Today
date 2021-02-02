@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=IBM+Plex+Mono&family=Yantramanav&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=IBM+Plex+Mono&family=Yantramanav&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <title>Travel Today</title>
     <!-- google maps -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDLoW4NIwbwoBdIEKhVbZQvJm8_DT-Las&libraries=places&v=weekly"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnSoYvrdN8o3qt17rQzeCUE9bJJj2k8DE&libraries=places"
-      defer></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDLoW4NIwbwoBdIEKhVbZQvJm8_DT-Las&libraries=places&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnSoYvrdN8o3qt17rQzeCUE9bJJj2k8DE&libraries=places"
+        defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Jumbotron for Title -->
     <header>
-        <div class="header-bar">Welcome to Our Site!</div> 
+        <div class="header-bar">Welcome to Our Site!</div>
         <div class="jumbotron">
             <div id="logo">
                 <img class="jumPic pic3" src="Assets/Travel_Today_Logo_Final.png">
@@ -43,7 +48,8 @@
 
     <!-- Div for User Story -->
     <div class="user-story">
-        <h1>Welcome to <span class="txt">Travel<strong>Today!</strong></span> Feel like a <span class="txt">local</span> wherever you go!</h1>
+        <h1>Welcome to <span class="txt">Travel<strong>Today!</strong></span> Feel like a <span class="txt">local</span>
+            wherever you go!</h1>
         <br>
         <p class="content">Here at <span class="txt">Travel<strong>Today</strong></span> we understand that travelling is already a stressful endeavor. Our mobile-friendly website makes it easy to find great hotels and local restaurants--anywhere in the country! Simply use the Search Bar to search a city, see what pops up, and when you find something you like just hit 'Save to List'. Your favorites will be stored for when you're ready to hit the town!</p>
     </div> 
@@ -54,46 +60,64 @@
 </div> 
     <!-- Map Container Div -->
     <div class="container-sm">
-        <div class= "row">
-            <div class= "col-md-7 map-search">
+        <div class="row">
+            <div class="col-md-7 map-search">
                 <form class="example" action="/action_page.php">
                     <input type="text" placeholder="Search the City!" name="search" id="enter-city">
                     <button type="button" id="search" class="btn btn-primary btn-sm">Search</button>
                 </form>
-                    <div class="map" id="map">
-                        Map
-                    </div>
-                    <br>
+                <div class="map" id="map">
+                    Map
+                </div>
+                <br>
             </div>
             <!-- Restaurant Container Div -->
-            <div class= "col-md-5 hide">
-              <div class ="row">
-                  <div class= "col-sm-12">
-                    <h4 class="results-header">What to Eat</h4>
-                    <div class="restaurant-container-md"></div>
-                  </div>
-              </div>
-            <!-- Hotel Container Div -->
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="results-header">Where to Stay </h4>
-                    <div class="hotel-container-md"></div>
+            <div class="col-md-5 hide">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="results-header">What to Eat</h4>
+                        <div class="restaurant-container-md">
+                        </div>
+                    </div>
                 </div>
-            </div>         
+
+                <!-- Hotel Container Div -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="results-header">Where to Stay </h4>
+                        <div class="hotel-container-md">
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>    
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id ="modal-name"></p>
+        </div>
+
     </div>
 
     <!-- Grey Line Break -->
-    <div class="line-break"><hr></div>
-    
+    <div class="line-break">
+        <hr>
+    </div>
+
     <!-- Footer Bar -->
     <div class="footer">
         <p><span class="foot">&copy2021 Designed and Developed by Lita Beach, Melissa Hoang, Bao Xiong, and Helen Lindberg. Supported by Blake Dragos and Google.</span></p>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
-<script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 
 </body>
 
