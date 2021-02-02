@@ -328,10 +328,12 @@ $(document).on("click", ".myModalBtn", function () {
   var modalPhotoEl = $("#modal-img");
   var modalPhoto = $(this).parent().siblings().children().innerHtml;
   modalPhotoEl.attr("src", modalPhoto);
+  modalPhotoEl.addClass("modal-photo");
   // modalPhotoEl.html(modalPhoto);
   var modalNameEl = $("#modal-name");
   var modalName = $(this).siblings()[0].textContent;
   modalNameEl.text(modalName);
+  modalNameEl.addClass("results-title");
   var modalAddressEl = $("#modal-address");
   var modalAddress = $(this).siblings()[1].textContent;
   modalAddressEl.text(modalAddress);
