@@ -19,7 +19,7 @@ $(document).ready(function () {
   userLocate();
 });
 
-//populate the map with markers, places info according to what user had searched
+//populate the map with markers, places info according to what user has searched
 function initMap(city) {
   geolocateURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + city + "&key=AIzaSyBepTaWB2S-ZswMELWF7HxBIvUDpXCAG9o"
 
@@ -44,7 +44,7 @@ function initMap(city) {
   });
 }
 
-//function to set the center of the map to the user location
+//set the center of the map to the user's location
 function userLocate() {
   infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
@@ -325,18 +325,19 @@ $("#search").on("click", function (event) {
 
 // On-click event for modal box to pop up if you hit the expand button
 $(document).on("click", ".myModalBtn", function () {
-  var modalPhotoEl = $("#modal-img")
-  var modalPhoto = $(this).parent().siblings().children().innerHTML;
-  modalPhotoEl.html(modalPhoto)
-  var modalNameEl = $("#modal-name")
+  var modalPhotoEl = $("#modal-img");
+  var modalPhoto = $(this).parent().siblings().children().innerHtml;
+  modalPhotoEl.attr("src", modalPhoto);
+  // modalPhotoEl.html(modalPhoto);
+  var modalNameEl = $("#modal-name");
   var modalName = $(this).siblings()[0].textContent;
-  modalNameEl.text(modalName)
-  var modalAddressEl = $("#modal-address")
+  modalNameEl.text(modalName);
+  var modalAddressEl = $("#modal-address");
   var modalAddress = $(this).siblings()[1].textContent;
-  modalAddressEl.text(modalAddress)
-  var modalRatingEl = $("#modal-rating")
+  modalAddressEl.text(modalAddress);
+  var modalRatingEl = $("#modal-rating");
   var modalRating = $(this).siblings()[2].textContent;
-  modalRatingEl.text(modalRating)
+  modalRatingEl.text(modalRating);
 
   modal.style.display = "block";
 });
