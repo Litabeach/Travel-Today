@@ -229,20 +229,22 @@ h1{
     position: relative; 
     top: 25%; 
     width: 100%; 
+    font-size: 40px; 
+    color: white; 
     text-align: center; 
 } 
 
-.overlay a { 
+.overlay ul li { 
     padding: 10px; 
     text-decoration: none; 
-    font-size: 40px; 
+    font-size: 30px; 
     color: white; 
     display: block; 
     transition: 0.3s; 
 } 
 
-.overlay a:hover, 
-.overlay a:focus { 
+.overlay  ul li:hover, 
+.overlay  ul li:focus { 
     color: black; 
 } 
 
@@ -256,8 +258,14 @@ h1{
     background: rgba(0, 128, 128, 0.404);
     font-size: 40px;
     cursor: pointer;
+    color: teal;
 }
 
-i {
-    color: teal;
+#xbtn{
+    color: white;
+    font-size: 25px;
+}
+#xbtn:hover, 
+#xbtn:focus{
+    color: black;
 }

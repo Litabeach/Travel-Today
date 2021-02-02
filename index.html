@@ -115,11 +115,14 @@
     <div id="myNav" class="overlay"> 
         <a href="javascript:void(0)" 
             class="closebtn" onclick="closeNav()"> 
-            × 
+            <i id= "xbtn" class="fas fa-times"></i>
         </a> 
-        <div class="overlay-content saveItem"> 
+        <div class="overlay-content"> 
             <!-- Local storage accessible here -->
-            <a href="#">Saved Places</a> 
+            <ul class= "saveItem">
+                Saved items:
+                <li>places</li>
+            </ul> 
         </div> 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
