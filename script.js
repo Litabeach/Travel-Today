@@ -153,7 +153,6 @@ function addHotels(latOne, lonOne) {
 
         //save button on click event
         $(hotelBtn).click(function () {
-          console.log("The button was clicked.");
           //adding element data to local storage
           for (let i = 0; i < name.length; i++){
           localStorage.setItem("hotelName", JSON.stringify(name));
@@ -262,7 +261,6 @@ function addRestaurants(latOne, lonOne) {
 
         //save button on click event
         $(restBtn).click(function () {
-          console.log("The button was clicked.");
           //adding element data to local storage
           for (let i = 0; i < name.length; i++) {
             localStorage.setItem("nameSave", JSON.stringify(name));
