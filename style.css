@@ -220,7 +220,7 @@ h1{
     position: fixed; 
     top: 0; 
     left: 0; 
-    background-color:teal;
+    background-color:rgba(0, 128, 128, 0.932);
     overflow-y: hidden; 
     transition: 1.0s; 
 } 
@@ -253,12 +253,11 @@ h1{
     font-size: 70px; 
 } 
 .savebar{
-    padding: 10px;
-    background: teal;
-    font-size: 35px;
+    background: rgba(0, 128, 128, 0.404);
+    font-size: 40px;
     cursor: pointer;
 }
 
-.save {
-    color: rgb(149, 236, 255);
+i {
+    color: teal;
 }
