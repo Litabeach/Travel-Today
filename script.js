@@ -128,7 +128,7 @@ function addHotels(latOne, lonOne) {
         addressEl.html(address);
         var hotelBtn = $("<button id='add-to-savelist'>");
         hotelBtn.html("Save to List");
-        var modalHotelBtn = $("<button class='myHotelBtn'>");
+        var modalHotelBtn = $("<button class='myModalBtn'>");
         modalHotelBtn.html("Expand");
 
         //add it to the page
@@ -238,7 +238,7 @@ function addRestaurants(latOne, lonOne) {
         //save button
         var restBtn = $("<button id='add-to-savelist'>");
         restBtn.html("Save to List");
-        var modalRestBtn = $("<button class='myRestBtn'>");
+        var modalRestBtn = $("<button class='myModalBtn'>");
         modalRestBtn.html("Expand");
 
         //add it to the page
@@ -246,8 +246,6 @@ function addRestaurants(latOne, lonOne) {
         createRow.append(newImgCol, newDescriptCol);
         newImgCol.append(photoEl);
         newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn, modalRestBtn);
-
-        
 
         //save button on click event
         $(restBtn).click(function () {
@@ -307,7 +305,6 @@ function closeNav() {
       "myNav").style.height = "0%"; 
 } 
 
-
 // on-click event for search button
 $("#search").on("click", function (event) {
   event.preventDefault();
@@ -321,8 +318,8 @@ $("#search").on("click", function (event) {
   }
 });
 
-// When the user clicks on a button with class ".myHotelBtn", open the modal for that listing
-$(document).on("click", ".myHotelBtn", function () {
+// On-click event for modal box to pop up if you hit the expand button
+$(document).on("click", ".myModalBtn", function () {
   var modalPhotoEl = $("#modal-img")
   var modalPhoto = $(this).parent().siblings().children().innerHTML;
   modalPhotoEl.html(modalPhoto)
@@ -335,27 +332,6 @@ $(document).on("click", ".myHotelBtn", function () {
   var modalRatingEl = $("#modal-rating")
   var modalRating = $(this).siblings()[2].textContent;
   modalRatingEl.text(modalRating)
-
-  modal.style.display = "block";
-});
-
-// When the user clicks on a button with class ".myRestBtn", open the modal for that listing
-$(document).on("click", ".myRestBtn", function () {
-  var modalPhotoEl = $("#modal-img")
-  var modalPhoto = $(this).parent().siblings().children().innerHTML;
-  modalPhotoEl.html(modalPhoto)
-  var modalNameEl = $("#modal-name")
-  var modalName = $(this).siblings()[0].textContent;
-  modalNameEl.text(modalName)
-  var modalAddressEl = $("#modal-address")
-  var modalAddress = $(this).siblings()[1].textContent;
-  modalAddressEl.text(modalAddress)
-  var modalRatingEl = $("#modal-rating")
-  var modalRating = $(this).siblings()[2].textContent;
-  modalRatingEl.text(modalRating)
-  var modalPriceEl = $("#modal-price")
-  var modalPrice = $(this).siblings()[3].textContent;
-  modalPriceEl.text(modalPrice)
 
   modal.style.display = "block";
 });
