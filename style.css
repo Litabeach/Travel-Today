@@ -10,8 +10,7 @@
 }
 .jumbotron{
     text-align: center;
-    background-color:  #ffbf6b;
-    /* border: 22px ridge #ffffff;  */
+    background-color:  teal;
 }
 
 .jumPic{
@@ -19,25 +18,22 @@
     height: 300px;
 }
 
-.blue {
-    background-color:  #70d0cf;
-}
-.peach {
-    background-color: peachpuff;
-}
 h1{
     text-align: center;
     font-family: 'Francois One', sans-serif;
 }
+
 .content {
     font-family: 'Francois One', sans-serif;
     font-size: 25px;
     border: 2px solid #70d0cf;
     padding: 5px;
 }
+
 .txt{
     color: #70d0cf;
 }
+
 #enter-city{
     margin-left: 20%;
     margin-top: 25px;
@@ -45,9 +41,10 @@ h1{
     font-family: 'verdana';
     padding-left: 1%;
 }
-/* #hold{
+#logo{
     background-color: rgb(248, 236, 221);
-} */
+}
+
 .saveitem{
     max-width: 100%;
     max-height: 100%;
@@ -55,6 +52,7 @@ h1{
     font-family: 'verdana';
     font-size: larger;
 }
+
 .container-sm{
     max-width: 100%;
     max-height: 100%;
@@ -63,21 +61,25 @@ h1{
 .line-break{
     margin: 20px;
 }
+
 .user-story{
     max-width: 100%;
     max-height: 100%;
     margin: 20px;
     font-family: 'verdana';
 }
+
 .map{
     height: 600px;
     width: auto;
     margin-top: 40px;
-    /* border: 22px ridge #D69A69; */
+
 }
+
 .map-search{
     border: 22px ridge #70d0cf;
 }
+
 .results-header{
     text-align: center;
     background-color: #70d0cf;
@@ -87,22 +89,23 @@ h1{
     font-weight: bolder;
     padding: 10px;
 }
+
 .restaurant-container-md{
     height: 350px;
-    /* border: 22px ridge #70d0cf; */
     font-family: Verdana;
     overflow: scroll;
     padding-top: 5%;
     background-color: #f2f2f2;
 }
+
 .hotel-container-md {
     height: 350px;
-    /* border: 22px ridge  #70d0cf; */
     font-family: Verdana;
     overflow: scroll;
     padding-top: 5%;
     background-color: #f2f2f2;
 }
+
 .photo-size{
     height:100px;
     width:100px;
@@ -110,10 +113,12 @@ h1{
     border: 3px solid #ffe77e;
     outline: 3px solid rgb(102, 200, 207);
 }
+
 .results-title{
     font-family: 'Bebas Neue', cursive;
     font-size: x-large;
 }
+
 #add-to-savelist{
     background-color: #fac05f;
     text-align: center;
@@ -124,6 +129,7 @@ h1{
     border: #fac05f;
     margin-top: 10px;
 }
+
 #search{
     background-color: rgb(102, 200, 207);
 }
@@ -136,8 +142,9 @@ h1{
     height:30px;
     color: rgb(51, 45, 45)
 }
+
 .footer {
-    background-color: #fac05f;
+    background-color:#70d0cf;
     height: 100px;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -147,6 +154,7 @@ h1{
     font-family: 'verdana';
 }
 
+<<<<<<< HEAD
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -184,3 +192,57 @@ h1{
     text-decoration: none;
     cursor: pointer;
   }
+=======
+.foot {
+    background-color:  rgb(149, 236, 255);
+}
+
+.overlay { 
+    height: 0%; 
+    width: 100%; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    background-color:teal;
+    overflow-y: hidden; 
+    transition: 1.0s; 
+} 
+
+.overlay-content { 
+    position: relative; 
+    top: 25%; 
+    width: 100%; 
+    text-align: center; 
+} 
+
+.overlay a { 
+    padding: 10px; 
+    text-decoration: none; 
+    font-size: 40px; 
+    color: white; 
+    display: block; 
+    transition: 0.3s; 
+} 
+
+.overlay a:hover, 
+.overlay a:focus { 
+    color: black; 
+} 
+
+.overlay .closebtn { 
+    position: absolute; 
+    top: 10px; 
+    right: 35px; 
+    font-size: 70px; 
+} 
+.savebar{
+    padding: 10px;
+    background: teal;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.save {
+    color: rgb(149, 236, 255);
+}
+>>>>>>> fe760dbe1217accd8beb48ff2f516519ffa73948

@@ -30,42 +30,34 @@
     <header>
         <div class="header-bar">Welcome to Our Site!</div>
         <div class="jumbotron">
-            <div id="hold">
-                <img class="jumPic peach" src="Assets/Travel_Today_Logo_Black_2.png">
-                <img class="jumPic blue" src="Assets/Travel_Today_Logo_Black_1.png">
-                <img class="jumPic peach" src="Assets/Travel_Today_Logo_Final.png">
-                <img class="jumPic blue" src="Assets/Travel_Today_Logo_BW_1.png">
-                <img class="jumPic peach" src="Assets/Travel_Today_Logo_BW_2.png">
+            <div id="logo">
+                <img class="jumPic pic3" src="Assets/Travel_Today_Logo_Final.png">
             </div>
         </div>
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <h5 class="text-white h4">Collapsed content</h5>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-        </div>
-        <nav class="saveitem">
-            <p>*Saved Items Test Holder Div*</p>
-        </nav>
-    </header>
 
-    <!-- Grey Line Break -->
-    <div class="line-break">
-        <hr>
-    </div>
+        <div id="myNav" class="overlay"> 
+          <a href="javascript:void(0)" 
+              class="closebtn" onclick="closeNav()"> 
+              × 
+          </a> 
+          <div class="overlay-content"> 
+              <a href="#">Saved Places</a> 
+          </div> 
+      </div>     
+    </header>
 
     <!-- Div for User Story -->
     <div class="user-story">
         <h1>Welcome to <span class="txt">Travel<strong>Today!</strong></span> Feel like a <span class="txt">local</span>
             wherever you go!</h1>
         <br>
-        <p class="content">Here at <span class="txt">Travel<strong>Today</strong></span> we understand that travelling
-            is already a stressful endeavor. Our mobile-friendly website makes it easy to find great hotels and local
-            restaurants--anywhere in the country! Simply use the Search Bar to search a city, see what pops up, and when
-            you find something you like just hit 'Save to List'. Your favorites will be stored for when you're ready to
-            hit the town!</p>
-    </div>
-
+        <p class="content">Here at <span class="txt">Travel<strong>Today</strong></span> we understand that travelling is already a stressful endeavor. Our mobile-friendly website makes it easy to find great hotels and local restaurants--anywhere in the country! Simply use the Search Bar to search a city, see what pops up, and when you find something you like just hit 'Save to List'. Your favorites will be stored for when you're ready to hit the town!</p>
+    </div> 
+   
+    <div class= "savebar"
+    onclick="openNav()"> 
+    ≡  <span class="save">Saved Item</span>
+</div> 
     <!-- Map Container Div -->
     <div class="container-sm">
         <div class="row">
@@ -107,7 +99,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p id ="modal-name">Some text in the Modal..</p>
+            <p id ="modal-name"></p>
         </div>
 
     </div>
@@ -119,8 +111,7 @@
 
     <!-- Footer Bar -->
     <div class="footer">
-        <p>&copy2021 Designed and Developed by Lita Beach, Melissa Hoang, Bao Xiong, and Helen Lindberg. Supported by
-            Blake Dragos and Google.</p>
+        <p><span class="foot">&copy2021 Designed and Developed by Lita Beach, Melissa Hoang, Bao Xiong, and Helen Lindberg. Supported by Blake Dragos and Google.</span></p>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
