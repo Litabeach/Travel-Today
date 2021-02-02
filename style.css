@@ -240,6 +240,7 @@ h1{
     font-size: 30px; 
     color: white; 
     display: block; 
+    cursor: pointer;
     transition: 0.3s; 
 } 
 
