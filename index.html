@@ -22,6 +22,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDLoW4NIwbwoBdIEKhVbZQvJm8_DT-Las&libraries=places&v=weekly"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnSoYvrdN8o3qt17rQzeCUE9bJJj2k8DE&libraries=places"
         defer></script>
+        <script src="https://kit.fontawesome.com/05bc08d7f0.js" crossorigin="anonymous"></script>   
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -45,11 +46,12 @@
         <br>
         <p class="content">Here at <span class="txt">Travel<strong>Today</strong></span> we understand that travelling is already a stressful endeavor. Our mobile-friendly website makes it easy to find great hotels and local restaurants--anywhere in the country! Simply use the Search Bar to search a city, see what pops up, and when you find something you like just hit 'Save to List'. Your favorites will be stored for when you're ready to hit the town!</p>
     </div> 
-   
-    <div class= "savebar"
-    onclick="openNav()"> 
-    ≡  <span class="save">Saved Item</span>
-</div> 
+
+   <!--Save bar Click to access local storage  -->
+    <div class= "savebar" onclick="openNav()"> 
+        <i class="far fa-save"></i> 
+    </div> 
+
     <!-- Map Container Div -->
     <div class="container-sm">
         <div class="row">
@@ -109,12 +111,14 @@
         <p><span class="foot">&copy2021 Designed and Developed by Lita Beach, Melissa Hoang, Bao Xiong, and Helen Lindberg. Supported by Blake Dragos and Google.</span></p>
     </div>
 
+    <!--Overlay for whole page  -->
     <div id="myNav" class="overlay"> 
         <a href="javascript:void(0)" 
             class="closebtn" onclick="closeNav()"> 
             × 
         </a> 
         <div class="overlay-content saveItem"> 
+            <!-- Local storage accessible here -->
             <a href="#">Saved Places</a> 
         </div> 
 

@@ -314,6 +314,7 @@ function addRestaurants(latOne, lonOne) {
   })
 }
 
+//Opens and closes nav overlay
 function openNav() { 
   document.getElementById( 
       "myNav").style.height = "100%"; 
