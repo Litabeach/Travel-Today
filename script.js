@@ -260,7 +260,7 @@ function addRestaurants(latOne, lonOne) {
         newImgCol.append(photoEl);
         newDescriptCol.append(nameEl, addressEl, ratingEl, priceEl, linebreak, restBtn);
 
-        //button on click event - simple test
+        //save button on click event
         $(restBtn).click(function () {
           console.log("The button was clicked.");
           //adding element data to local storage
