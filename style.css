@@ -154,7 +154,6 @@ h1{
     font-family: 'verdana';
 }
 
-<<<<<<< HEAD
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -192,7 +191,6 @@ h1{
     text-decoration: none;
     cursor: pointer;
   }
-=======
 .foot {
     background-color:  rgb(149, 236, 255);
 }
@@ -245,4 +243,3 @@ h1{
 .save {
     color: rgb(149, 236, 255);
 }
->>>>>>> fe760dbe1217accd8beb48ff2f516519ffa73948
