@@ -17,14 +17,14 @@ Published at: https://litabeach.github.io/Travel-Today/.
 
 Enter a city into the search bar to view restaurants and hotels.  Click "save to list" to keep track of points of interest.
 
-![Screenshot of map with markers and results of restaurants and hotels in Paris](Assets/screencapture.png)
+![Screenshot of map with markers and results of restaurants and hotels in Paris](Assets/screencapture1.png)
 
 ## Credits
 
 Bao Xiong <br>
 Helen Lindberg <br>
 Melissa Hoang <br>
-Helen Lindberg <br>
+Lita Beach <br>
 Blake Dragos<br>
 w3schools.com <br>
 stackoverflow.com
