@@ -24,7 +24,6 @@ Enter a city into the search bar to view restaurants and hotels.  Click "save to
 Bao Xiong <br>
 Helen Lindberg <br>
 Melissa Hoang <br>
-Helen Lindberg <br>
 Lita Beach <br>
 Blake Dragos<br>
 w3schools.com <br>
