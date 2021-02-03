@@ -230,9 +230,7 @@ function addRestaurants(latOne, lonOne) {
         if (price == 4) {
           priceEl = "Price Level: $$$$"
         }
-        if (price == 5) {
-          priceEl = "Price Level: $$$$$"
-        }
+       
         linebreak = $("<br>")
 
         //save button
@@ -344,7 +342,6 @@ $(document).on("click", ".myModalBtn", function () {
   var modalPhoto = $(this).parent().siblings().children()[0].src
   modalPhotoEl.attr("src", modalPhoto);
   modalPhotoEl.addClass("modal-photo");
-  // modalPhotoEl.html(modalPhoto);
   var modalNameEl = $("#modal-name");
   var modalName = $(this).siblings()[0].textContent;
   modalNameEl.text(modalName);

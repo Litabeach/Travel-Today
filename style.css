@@ -107,7 +107,7 @@ h1{
 }
 
 .photo-size{
-    width:100px;
+    width:200px;
     margin: 20px 20px;
     border: 3px solid #ffe77e;
     outline: 3px solid rgb(102, 200, 207);
@@ -187,7 +187,7 @@ h1{
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
+   background-color: #dbd9d9;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
