@@ -95,7 +95,8 @@ h1{
 .restaurant-container-md{
     height: 350px;
     font-family: Verdana;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding-top: 5%;
     background-color: #f2f2f2;
 }
@@ -103,7 +104,8 @@ h1{
 .hotel-container-md {
     height: 350px;
     font-family: Verdana;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding-top: 5%;
     background-color: #f2f2f2;
 }
@@ -223,7 +225,7 @@ h1{
     background-color:rgba(0, 128, 128, 0.932);
     overflow-y: hidden; 
     transition: 1.0s; 
-    overflow: scroll;
+    overflow: auto;
 } 
 
 .save-data{
@@ -275,7 +277,11 @@ h1{
     font-size: 70px; 
 } 
 .savebar{
+<<<<<<< HEAD
     background: teal;
+=======
+    background: rgb(149, 236, 255);
+>>>>>>> b1c4fa7fe8b81252aa0019ab586de4170dbadfe0
     font-size: 40px;
     cursor: pointer;
     color: teal;
