@@ -2,6 +2,11 @@ let map;
 let marker;
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
+var savePlaces = [];
+var savePlacesCheck = JSON.parse(localStorage.getItem("results-saved-1"));
+if (savePlacesCheck) {
+  savePlaces = savePlacesCheck
+}
 
 //pulls up a blank map of Minneapolis on load
 $(document).ready(function () {
@@ -250,36 +255,31 @@ function addRestaurants(latOne, lonOne) {
         //save button on click event
         $(restBtn).click(function () {
           //adding element data to local storage
-          for (let i = 0; i < name.length; i++) {
-            localStorage.setItem("food-name", JSON.stringify(name));
-            localStorage.setItem("food-address", JSON.stringify(address));
-            localStorage.setItem("food-rating", JSON.stringify(rating));
-            localStorage.setItem("food-price", JSON.stringify(price));
+          var placeData = {
+            foodName: JSON.stringify(name),
+            foodAddress: JSON.stringify(address),
+            foodRating: JSON.stringify(rating),
+            foodPrice: JSON.stringify(price)
           }
+          savePlaces.push(placeData);
+          localStorage.setItem("results-saved-1", JSON.stringify(savePlaces));
           // run function to load results
           loadResults();
         });
 
         // function to get results from local storage
         function loadResults() {
-          var foodName = JSON.parse(localStorage.getItem("food-name"));
-          var foodAddress = JSON.parse(localStorage.getItem("food-address"));
-          var foodRating = JSON.parse(localStorage.getItem("food-rating"));
-          var foodPrice = JSON.parse(localStorage.getItem("food-price"));
-          console.log(foodName, foodAddress, foodRating, foodPrice);
-          
-          //create an array for the restaurant save data
-          let foodNameEl = foodName;
-          let foodAddressEl = foodAddress;
-          let foodRatingEl = ("Rating: " + foodRating + " stars");
-          let foodPriceEl = foodPrice;
-          if (foodPrice == 1) {foodPriceEl = "Price Level: $"}
-          if (foodPrice == 2) {foodPriceEl = "Price Level: $$"}
-          if (foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
-          if (foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
-          if (foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
-          var foodSave = [foodNameEl, foodAddressEl, foodRatingEl, foodPriceEl]
-          console.log(foodSave);
+          var savePlaces = JSON.parse(localStorage.getItem("results-saved-1"));
+          for (var i = 0; i < savePlaces.length; i++) {
+            let foodNameEl = savePlaces[i].foodName;
+            let foodAddressEl = savePlaces[i].foodAddress;
+            let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
+            let foodPriceEl = savePlaces[i].foodPrice;
+            if (savePlaces[i].foodPrice == 1) {foodPriceEl = "Price Level: $"}
+            if (savePlaces[i].foodPrice == 2) {foodPriceEl = "Price Level: $$"}
+            if (savePlaces[i].foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
+            if (savePlaces[i].foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
+            if (savePlaces[i].foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
 
           //append to the page
           var p = $(".saveItem");
@@ -287,14 +287,20 @@ function addRestaurants(latOne, lonOne) {
           nameList.append(foodNameEl);
           p.append(nameList);
           //on click event to get list details
-          $(nameList).click(function () {
-            $(test).empty();
-            var linebreak = $("<br>")
-            var test = $("<li>");
-            test.append(foodRatingEl, linebreak, foodPriceEl, linebreak, foodAddressEl);
-            p.append(test);
+          $(nameList).click(function (e) {
+            e.preventDefault();
+            var test = $("<div>");
+            test.attr("class", "save-data");
+            var foodR = $("<div class='save-rating'>");
+            var foodP = $("<div class='save-price'>");
+            var foodA = $("<div class='save-address'>");
+            foodR.text(foodRatingEl);
+            foodP.text(foodPriceEl);
+            foodA.text(foodAddressEl);
+            test.append(foodR, foodP, foodA);
+            $(this).append(test);
           })
-        }
+        }}
 
         //add markers to map
         var marker = new google.maps.Marker({
