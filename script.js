@@ -6,36 +6,7 @@ var savePlaces = [];
 var savePlacesCheck = JSON.parse(localStorage.getItem("results-saved-1"));
 if (savePlacesCheck) {
   savePlaces = savePlacesCheck
-    for (var i = 0; i < savePlaces.length; i++) {
-      let foodNameEl = savePlaces[i].foodName;
-      let foodAddressEl = savePlaces[i].foodAddress;
-      let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
-      let foodPriceEl = savePlaces[i].foodPrice;
-      if (foodPriceEl == 1) {foodPriceEl = "Price Level: $"}
-      if (foodPriceEl == 2) {foodPriceEl = "Price Level: $$"}
-      if (foodPriceEl == 3) {foodPriceEl = "Price Level: $$$"}
-      if (foodPriceEl == 4) {foodPriceEl = "Price Level: $$$$"}
-
-      //append to the page
-      var p = $(".saveItem");
-      var nameList = $("<li class='name-title'>");
-      nameList.append(foodNameEl);
-      p.append(nameList);
-      //on click event to get list details
-      $(nameList).click(function (e) {
-        e.preventDefault();
-        var test = $("<div>");
-        test.attr("class", "save-data");
-        var foodR = $("<div class='save-rating'>");
-        var foodP = $("<div class='save-price'>");
-        var foodA = $("<div class='save-address'>");
-        foodR.text(foodRatingEl);
-        foodP.text(foodPriceEl);
-        foodA.text(foodAddressEl);
-        test.append(foodR, foodP, foodA);
-        $(this).append(test);
-      })
-    }
+    loadResults();
 }
 
 //pulls up a blank map of Minneapolis on load
@@ -51,14 +22,6 @@ $(document).ready(function () {
     addRestaurants(lat, lng);
     addHotels(lat, lng);
   });
-
-  map.addListener('zoom_changed', function () {
-    var lat = this.getCenter().lat(); 
-    var lng = this.getCenter().lng();
-    addRestaurants(lat, lng);
-    addHotels(lat, lng);
-  });
-
   userLocate();
 });
 
@@ -194,34 +157,6 @@ function addHotels(latOne, lonOne) {
           loadResults();
         });
 
-        // function to get results from local storage
-        function loadResults() {
-          var savePlaces = JSON.parse(localStorage.getItem("results-saved-1"));
-          $(".saveItem").empty();
-          for (var i = 0; i < savePlaces.length; i++) {
-            let hotelNameEl = savePlaces[i].hotelName;
-            let hotelAddressEl = savePlaces[i].hotelAddress;
-            let hotelRatingEl = ("Rating: " + savePlaces[i].hotelRating + " stars");
-        
-          //append to the page
-          var p = $(".saveItem");
-          var nameList = $("<li class='name-title'>");
-          nameList.append(hotelNameEl);
-          p.append(nameList);
-          //on click event to get list details
-          $(nameList).click(function (e) {
-            e.preventDefault();
-            var test = $("<div>");
-            test.attr("class", "save-data");
-            var hotelR = $("<div class='save-rating'>");
-            var hotelA = $("<div class='save-address'>");
-            hotelR.text(hotelRatingEl);
-            hotelA.text(hotelAddressEl);
-            test.append(hotelR, hotelA);
-            $(this).append(test);
-          })
-        }}
-
         //create markers on map
         var marker = new google.maps.Marker({
           place: {
@@ -316,49 +251,6 @@ function addRestaurants(latOne, lonOne) {
           loadResults();
         });
 
-        // function to get results from local storage
-        function loadResults() {
-          var savePlaces = JSON.parse(localStorage.getItem("results-saved-1"));
-          $(".saveItem").empty();
-          for (var i = 0; i < savePlaces.length; i++) {
-            let foodNameEl = savePlaces[i].foodName;
-            let foodAddressEl = savePlaces[i].foodAddress;
-            let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
-            let foodPriceEl = savePlaces[i].foodPrice;
-            if (foodPriceEl == 1) {foodPriceEl = "Price Level: $"}
-            if (foodPriceEl == 2) {foodPriceEl = "Price Level: $$"}
-            if (foodPriceEl == 3) {foodPriceEl = "Price Level: $$$"}
-            if (foodPriceEl == 4) {foodPriceEl = "Price Level: $$$$"}
-
-          //append to the page
-          var p = $(".saveItem");
-          var nameList = $("<li class='name-title'>");
-          nameList.append(foodNameEl);
-          p.append(nameList);
-          //on click event to get list details
-          $(nameList).click(function (e) {
-            e.preventDefault();
-            var test = $("<div>");
-            test.attr("class", "save-data");
-            var foodR = $("<div class='save-rating'>");
-            var foodP = $("<div class='save-price'>");
-            var foodA = $("<div class='save-address'>");
-            foodR.text(foodRatingEl);
-            foodP.text(foodPriceEl);
-            foodA.text(foodAddressEl);
-            test.append(foodR, foodP, foodA);
-            $(this).append(test);
-
-            //nav bar clear button function
-            var clearBtn = $(".btn-clear");
-            $(clearBtn).click(function () {
-              localStorage.clear();
-              var p = $(".saveItem");
-              p.clear();
-            })
-          })
-        }}
-
         //add markers to map
         var marker = new google.maps.Marker({
           place: {
@@ -376,6 +268,86 @@ function addRestaurants(latOne, lonOne) {
     }
   })
 }
+
+// function to get results from local storage
+function loadResults() {
+  var savePlaces = JSON.parse(localStorage.getItem("results-saved-1"));
+  $(".saveItem").empty();
+  for (var i = 0; i < savePlaces.length; i++) {
+    if (savePlaces[i].hotelName) {
+      let hotelNameEl = savePlaces[i].hotelName;
+      let hotelAddressEl = savePlaces[i].hotelAddress;
+      let hotelRatingEl = ("Rating: " + savePlaces[i].hotelRating + " stars");
+    
+      //append to the page
+      var p = $(".saveItem");
+      var nameList = $("<li class='name-title'>");
+      nameList.append(hotelNameEl);
+      p.append(nameList);
+      //on click event to get list details
+      $(nameList).click(function (e) {
+        if ($(this).children().length !== 0){
+
+        }
+        else {
+          e.preventDefault();
+          var test = $("<div>");
+          test.attr("class", "save-data");
+          var hotelR = $("<div class='save-rating'>");
+          var hotelA = $("<div class='save-address'>");
+          hotelR.text(hotelRatingEl);
+          hotelA.text(hotelAddressEl);
+          test.append(hotelR, hotelA);
+          $(this).append(test);
+        }
+      })
+    }
+    else {
+      let foodNameEl = savePlaces[i].foodName;
+      let foodAddressEl = savePlaces[i].foodAddress;
+      let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
+      let foodPriceEl = savePlaces[i].foodPrice;
+      if (foodPriceEl == 1) {foodPriceEl = "Price Level: $"}
+      if (foodPriceEl == 2) {foodPriceEl = "Price Level: $$"}
+      if (foodPriceEl == 3) {foodPriceEl = "Price Level: $$$"}
+      if (foodPriceEl == 4) {foodPriceEl = "Price Level: $$$$"}
+
+      //append to the page
+      var p = $(".saveItem");
+      var nameList = $("<li class='name-title'>");
+      nameList.append(foodNameEl);
+      p.append(nameList);
+      //on click event to get list details
+      $(nameList).click(function (e) {
+        if ($(this).children().length !== 0){
+
+        }
+        else {
+          var currentText = $(this).text();
+        $(this).html("<li></li>");
+        $(this).text(currentText);
+        e.preventDefault();
+        var test = $("<div>");
+        test.attr("class", "save-data");
+        var foodR = $("<div class='save-rating'>");
+        var foodP = $("<div class='save-price'>");
+        var foodA = $("<div class='save-address'>");
+        foodR.text(foodRatingEl);
+        foodP.text(foodPriceEl);
+        foodA.text(foodAddressEl);
+        test.append(foodR, foodP, foodA);
+        $(this).append(test);
+        }
+      })}
+}}
+
+//nav bar clear button function
+var clearBtn = $(".btn-clear");
+$(clearBtn).click(function () {
+  localStorage.clear();
+  $(".saveItem").empty();
+  savePlaces = [];
+})
 
 //Opens and closes nav overlay
 function openNav() { 
