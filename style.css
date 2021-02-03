@@ -224,6 +224,15 @@ h1{
     overflow: scroll;
 } 
 
+.save-data{
+    background-color: white;
+    color: black;
+    width: 50%;
+    margin: 5px auto 5px auto;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
 .overlay-content { 
     position: relative; 
     top: 10%; 
