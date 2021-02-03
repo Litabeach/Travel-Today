@@ -11,11 +11,10 @@ if (savePlacesCheck) {
       let foodAddressEl = savePlaces[i].foodAddress;
       let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
       let foodPriceEl = savePlaces[i].foodPrice;
-      if (savePlaces[i].foodPrice == 1) {foodPriceEl = "Price Level: $"}
-      if (savePlaces[i].foodPrice == 2) {foodPriceEl = "Price Level: $$"}
-      if (savePlaces[i].foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
-      if (savePlaces[i].foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
-      if (savePlaces[i].foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
+      if (foodPriceEl == 1) {foodPriceEl = "Price Level: $"}
+      if (foodPriceEl == 2) {foodPriceEl = "Price Level: $$"}
+      if (foodPriceEl == 3) {foodPriceEl = "Price Level: $$$"}
+      if (foodPriceEl == 4) {foodPriceEl = "Price Level: $$$$"}
 
       //append to the page
       var p = $(".saveItem");
@@ -176,23 +175,44 @@ function addHotels(latOne, lonOne) {
         //save button on click event
         $(hotelBtn).click(function () {
           //adding element data to local storage
-          for (let i = 0; i < name.length; i++){
-          localStorage.setItem("hotelName", JSON.stringify(name));
-          localStorage.setItem("hotelAddress", JSON.stringify(address));
-          localStorage.setItem("hotelRating", JSON.stringify(rating));
+          var placeData = {
+            hotelName: JSON.stringify(name),
+            hotelAddress: JSON.stringify(address),
+            hotelRating: JSON.stringify(rating)
           }
+          savePlaces.push(placeData);
+          localStorage.setItem("results-saved-1", JSON.stringify(savePlaces));
           // run function to load results
           loadResults();
         });
 
         // function to get results from local storage
         function loadResults() {
-          var hotelName = JSON.parse(localStorage.getItem("hotelName"));
-          var hotelAddress = JSON.parse(localStorage.getItem("hotelAddress"));
-          var hotelRating = JSON.parse(localStorage.getItem("hotelRating"));
-
-          console.log(hotelName, hotelAddress, hotelRating);
-        }
+          var savePlaces = JSON.parse(localStorage.getItem("results-saved-1"));
+          $(".saveItem").empty();
+          for (var i = 0; i < savePlaces.length; i++) {
+            let hotelNameEl = savePlaces[i].hotelName;
+            let hotelAddressEl = savePlaces[i].hotelAddress;
+            let hotelRatingEl = ("Rating: " + savePlaces[i].hotelRating + " stars");
+        
+          //append to the page
+          var p = $(".saveItem");
+          var nameList = $("<li class='name-title'>");
+          nameList.append(hotelNameEl);
+          p.append(nameList);
+          //on click event to get list details
+          $(nameList).click(function (e) {
+            e.preventDefault();
+            var test = $("<div>");
+            test.attr("class", "save-data");
+            var hotelR = $("<div class='save-rating'>");
+            var hotelA = $("<div class='save-address'>");
+            hotelR.text(hotelRatingEl);
+            hotelA.text(hotelAddressEl);
+            test.append(hotelR, hotelA);
+            $(this).append(test);
+          })
+        }}
 
         //create markers on map
         var marker = new google.maps.Marker({
@@ -253,19 +273,11 @@ function addRestaurants(latOne, lonOne) {
         photoEl.attr("src", photo);
         var priceEl = $("<p>");
         priceEl.html(price);
-        //change price 1-5 to $$$
-        if (price == 1) {
-          priceEl = "Price Level: $"
-        }
-        if (price == 2) {
-          priceEl = "Price Level: $$"
-        }
-        if (price == 3) {
-          priceEl = "Price Level: $$$"
-        }
-        if (price == 4) {
-          priceEl = "Price Level: $$$$"
-        }
+        //change price 1-4 to $$$
+        if (price == 1) {priceEl = "Price Level: $"}
+        if (price == 2) {priceEl = "Price Level: $$"}
+        if (price == 3) {priceEl = "Price Level: $$$"}
+        if (price == 4) {priceEl = "Price Level: $$$$"}
        
         linebreak = $("<br>")
 
@@ -305,11 +317,10 @@ function addRestaurants(latOne, lonOne) {
             let foodAddressEl = savePlaces[i].foodAddress;
             let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
             let foodPriceEl = savePlaces[i].foodPrice;
-            if (savePlaces[i].foodPrice == 1) {foodPriceEl = "Price Level: $"}
-            if (savePlaces[i].foodPrice == 2) {foodPriceEl = "Price Level: $$"}
-            if (savePlaces[i].foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
-            if (savePlaces[i].foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
-            if (savePlaces[i].foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
+            if (foodPriceEl == 1) {foodPriceEl = "Price Level: $"}
+            if (foodPriceEl == 2) {foodPriceEl = "Price Level: $$"}
+            if (foodPriceEl == 3) {foodPriceEl = "Price Level: $$$"}
+            if (foodPriceEl == 4) {foodPriceEl = "Price Level: $$$$"}
 
           //append to the page
           var p = $(".saveItem");
@@ -334,6 +345,7 @@ function addRestaurants(latOne, lonOne) {
             var clearBtn = $(".btn-clear");
             $(clearBtn).click(function () {
               localStorage.clear();
+              var p = $(".saveItem");
               p.clear();
             })
           })
