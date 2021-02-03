@@ -28,6 +28,7 @@ h1{
     font-size: 25px;
     border: 2px solid #70d0cf;
     padding: 5px;
+    text-align: center;
 }
 
 .txt{
@@ -274,7 +275,7 @@ h1{
     font-size: 70px; 
 } 
 .savebar{
-    background: rgba(0, 128, 128, 0.404);
+    background: teal;
     font-size: 40px;
     cursor: pointer;
     color: teal;
@@ -290,4 +291,5 @@ h1{
 }
 .fa-save{
     text-indent: 20px;
+    color: #70d0cf;
 }
