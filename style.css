@@ -221,11 +221,12 @@ h1{
     background-color:rgba(0, 128, 128, 0.932);
     overflow-y: hidden; 
     transition: 1.0s; 
+    overflow: scroll;
 } 
 
 .overlay-content { 
     position: relative; 
-    top: 25%; 
+    top: 10%; 
     width: 100%; 
     font-size: 40px; 
     color: white; 
@@ -235,7 +236,7 @@ h1{
 .overlay ul li { 
     padding: 10px; 
     text-decoration: none; 
-    font-size: 30px; 
+    font-size: 25px; 
     color: white; 
     display: block; 
     cursor: pointer;
