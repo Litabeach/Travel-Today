@@ -21,6 +21,14 @@ $(document).ready(function () {
     addRestaurants(lat, lng);
     addHotels(lat, lng);
   });
+
+  map.addListener('zoom_changed', function () {
+    var lat = this.getCenter().lat(); 
+    var lng = this.getCenter().lng();
+    addRestaurants(lat, lng);
+    addHotels(lat, lng);
+  });
+
   userLocate();
 });
 
