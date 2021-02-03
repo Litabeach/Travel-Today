@@ -107,7 +107,6 @@ h1{
 }
 
 .photo-size{
-    height:100px;
     width:100px;
     margin: 20px 20px;
     border: 3px solid #ffe77e;
@@ -130,7 +129,6 @@ h1{
     margin-top: 10px;
 }
 .modal-photo{
-    height: 250px;
     width: 250px;
     margin: 20px 20px;
     border: 3px solid #ffe77e;
@@ -180,8 +178,8 @@ h1{
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 100%;
+    height: 1000%;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -193,7 +191,7 @@ h1{
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; 
   }
   
   /* The Close Button */
@@ -223,11 +221,12 @@ h1{
     background-color:rgba(0, 128, 128, 0.932);
     overflow-y: hidden; 
     transition: 1.0s; 
+    overflow: scroll;
 } 
 
 .overlay-content { 
     position: relative; 
-    top: 25%; 
+    top: 10%; 
     width: 100%; 
     font-size: 40px; 
     color: white; 
@@ -237,7 +236,7 @@ h1{
 .overlay ul li { 
     padding: 10px; 
     text-decoration: none; 
-    font-size: 30px; 
+    font-size: 25px; 
     color: white; 
     display: block; 
     cursor: pointer;
@@ -269,4 +268,7 @@ h1{
 #xbtn:hover, 
 #xbtn:focus{
     color: black;
+}
+.fa-save{
+    text-indent: 20px;
 }

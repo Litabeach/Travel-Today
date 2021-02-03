@@ -347,7 +347,7 @@ $("#search").on("click", function (event) {
 // On-click event for modal box to pop up if you hit the expand button
 $(document).on("click", ".myModalBtn", function () {
   var modalPhotoEl = $("#modal-img");
-  var modalPhoto = $(this).parent().siblings().children().innerHtml;
+  var modalPhoto = $(this).parent().siblings().children()[0].src
   modalPhotoEl.attr("src", modalPhoto);
   modalPhotoEl.addClass("modal-photo");
   // modalPhotoEl.html(modalPhoto);
