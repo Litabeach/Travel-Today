@@ -6,6 +6,37 @@ var savePlaces = [];
 var savePlacesCheck = JSON.parse(localStorage.getItem("results-saved-1"));
 if (savePlacesCheck) {
   savePlaces = savePlacesCheck
+    for (var i = 0; i < savePlaces.length; i++) {
+      let foodNameEl = savePlaces[i].foodName;
+      let foodAddressEl = savePlaces[i].foodAddress;
+      let foodRatingEl = ("Rating: " + savePlaces[i].foodRating + " stars");
+      let foodPriceEl = savePlaces[i].foodPrice;
+      if (savePlaces[i].foodPrice == 1) {foodPriceEl = "Price Level: $"}
+      if (savePlaces[i].foodPrice == 2) {foodPriceEl = "Price Level: $$"}
+      if (savePlaces[i].foodPrice == 3) {foodPriceEl = "Price Level: $$$"}
+      if (savePlaces[i].foodPrice == 4) {foodPriceEl = "Price Level: $$$$"}
+      if (savePlaces[i].foodPrice == 5) {foodPriceEl = "Price Level: $$$$$"}
+
+      //append to the page
+      var p = $(".saveItem");
+      var nameList = $("<li class='name-title'>");
+      nameList.append(foodNameEl);
+      p.append(nameList);
+      //on click event to get list details
+      $(nameList).click(function (e) {
+        e.preventDefault();
+        var test = $("<div>");
+        test.attr("class", "save-data");
+        var foodR = $("<div class='save-rating'>");
+        var foodP = $("<div class='save-price'>");
+        var foodA = $("<div class='save-address'>");
+        foodR.text(foodRatingEl);
+        foodP.text(foodPriceEl);
+        foodA.text(foodAddressEl);
+        test.append(foodR, foodP, foodA);
+        $(this).append(test);
+      })
+    }
 }
 
 //pulls up a blank map of Minneapolis on load
@@ -276,6 +307,7 @@ function addRestaurants(latOne, lonOne) {
         // function to get results from local storage
         function loadResults() {
           var savePlaces = JSON.parse(localStorage.getItem("results-saved-1"));
+          $(".saveItem").empty();
           for (var i = 0; i < savePlaces.length; i++) {
             let foodNameEl = savePlaces[i].foodName;
             let foodAddressEl = savePlaces[i].foodAddress;
@@ -305,6 +337,13 @@ function addRestaurants(latOne, lonOne) {
             foodA.text(foodAddressEl);
             test.append(foodR, foodP, foodA);
             $(this).append(test);
+
+            //nav bar clear button function
+            var clearBtn = $(".btn-clear");
+            $(clearBtn).click(function () {
+              localStorage.clear();
+              p.clear();
+            })
           })
         }}
 
