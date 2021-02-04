@@ -17,7 +17,7 @@ Published at: https://litabeach.github.io/Travel-Today/.
 
 Enter a city into the search bar to view restaurants and hotels.  Click "save to list" to keep track of points of interest.
 
-![Screenshot of map with markers and results of restaurants and hotels in Paris](/Assets/Screenshot.png)
+![Screenshot of map with markers and results of restaurants and hotels in Vegas](Assets/Screenshot.png)
 
 ## Credits
 
