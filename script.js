@@ -339,7 +339,7 @@ function loadResults() {
         $(this).append(test);
         }
       })}
-}}
+}};
 
 //nav bar clear button function
 var clearBtn = $(".btn-clear");
